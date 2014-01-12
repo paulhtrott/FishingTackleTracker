@@ -1,5 +1,6 @@
 Tackletracker::Application.routes.draw do
-  get "/contact_us"
+  get "contact_us" => 'static#contact_us'
+  get "about_us" => 'static#about_us' 
   devise_for :users
   resources :dashboard
 
