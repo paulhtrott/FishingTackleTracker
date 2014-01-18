@@ -4,4 +4,7 @@ class StaticController < ApplicationController
 
   def about_us
   end
+
+  def how_to
+  end
 end

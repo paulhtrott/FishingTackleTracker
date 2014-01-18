@@ -1,10 +1,11 @@
 Tackletracker::Application.routes.draw do
   get "contact_us" => 'static#contact_us'
   get "about_us" => 'static#about_us' 
+  get "how_to" => 'static#how_to'
   devise_for :users
   resources :dashboard
 
-  root to: "home#index"
+  root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
