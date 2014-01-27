@@ -7,13 +7,16 @@ gem 'rails', '4.0.0.rc2'
 gem 'devise'
 
 # Use Stripe
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', '~> 1.9'
 
 # Use CanCan
-gem 'cancan'
+#gem 'cancan'
+
+# Use postgres database
+gem 'pg'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc2'
