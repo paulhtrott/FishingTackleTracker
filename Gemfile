@@ -18,6 +18,9 @@ gem 'stripe', '~> 1.9'
 # Use postgres database
 gem 'pg'
 
+#Include 'rails_12factor' gem to enable all platform features
+gem 'rails_12factor', group: :production
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
