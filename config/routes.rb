@@ -1,5 +1,5 @@
 Tackletracker::Application.routes.draw do
-  get "contact_us" => 'static#contact_us'
+  get "thank_you" => 'static#thank_you'
   get "about_us" => 'static#about_us' 
   get "how_to" => 'static#how_to'
 
