@@ -2,7 +2,12 @@ Tackletracker::Application.routes.draw do
   get "thank_you" => 'static#thank_you'
   get "about_us" => 'static#about_us' 
   get "how_to" => 'static#how_to'
-
+  
+  resources :contacts,
+    :controller => 'contact_us/contacts',
+    :only       => [:new, :create]
+  get 'contact-us' => 'contact_us/contacts#new', :as => :contact_us
+  
   devise_for :users
 
   resources :dashboard

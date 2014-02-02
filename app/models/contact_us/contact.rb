@@ -8,8 +8,8 @@ class ContactUs::Contact
   validates :email,   :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i },
                       :presence => true
   validates :message, :presence => true, :length => { :minimum => 10, :maximum => 1000 }
-  validates :name,    :presence => {:if => Proc.new{ContactUs.require_name}}
-  validates :subject, :presence => {:if => Proc.new{ContactUs.require_subject}}
+  validates :name,    :presence => true, :length => { :minimum => 2 }
+  validates :subject, :presence => true, :length => { :minimum => 5 }
 
   def initialize(attributes = {})
     attributes.each do |key, value|

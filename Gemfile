@@ -7,7 +7,7 @@ ruby "2.0.0"
 #gem 'sendgrid'
 
 #Contact Us Gem
-gem 'contact_us', '~> 0.5.1'
+#gem 'contact_us', '~> 0.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
