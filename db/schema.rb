@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125195529) do
+ActiveRecord::Schema.define(version: 20140329181604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tackle_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "tackle_categories", default: [], array: true
+  end
+
+  add_index "tackle_types", ["tackle_categories"], name: "index_tackle_types_on_tackle_categories", using: :gin
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
