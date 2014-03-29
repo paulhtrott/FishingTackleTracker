@@ -18,12 +18,13 @@ ActiveRecord::Schema.define(version: 20140329181604) do
 
   create_table "tackle_types", force: true do |t|
     t.string   "name"
+    t.string   "tackle_category"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "tackle_categories", default: [], array: true
   end
 
-  add_index "tackle_types", ["tackle_categories"], name: "index_tackle_types_on_tackle_categories", using: :gin
+  add_index "tackle_types", ["name"], name: "index_tackle_types_on_name", unique: true, using: :btree
+  add_index "tackle_types", ["tackle_category"], name: "index_tackle_types_on_tackle_category", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

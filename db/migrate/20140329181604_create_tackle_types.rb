@@ -2,10 +2,12 @@ class CreateTackleTypes < ActiveRecord::Migration
   def change
     create_table :tackle_types do |t|
       t.string :name
-      
+      t.string :tackle_category
+     
       t.timestamps
     end
-    add_column :tackle_types, :tackle_categories, :string, array: true, default: []
-    add_index :tackle_types, :tackle_categories, using: 'gin' 
+    # indexing for columns
+    add_index :tackle_types, :name, :unique => true
+    add_index :tackle_types, :tackle_category
   end
 end
