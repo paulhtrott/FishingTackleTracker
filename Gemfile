@@ -21,6 +21,15 @@ gem 'stripe', '~> 1.9'
 # Use CanCan
 #gem 'cancan'
 
+# Use Bootstrap 3
+gem 'bootstrap3-rails', '~> 3.1'
+
+# Use Country Select
+gem 'country_select', '~> 1.3'
+
+# Use Simple Form for Forms
+gem 'simple_form', '~> 3.0'
+
 # Use postgres database
 gem 'pg'
 

@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329181604) do
+ActiveRecord::Schema.define(version: 20140330232144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "member_tackles", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "size"
+    t.integer  "quantity"
+    t.string   "color"
+    t.string   "modelnumber"
+    t.string   "shape"
+    t.string   "length"
+    t.string   "weight"
+    t.string   "brand"
+    t.decimal  "price",          precision: 12, scale: 2
+    t.integer  "user_id"
+    t.integer  "tackle_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "member_tackles", ["tackle_type_id"], name: "index_member_tackles_on_tackle_type_id", using: :btree
+  add_index "member_tackles", ["user_id"], name: "index_member_tackles_on_user_id", using: :btree
 
   create_table "tackle_types", force: true do |t|
     t.string   "name"

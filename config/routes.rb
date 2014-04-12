@@ -1,4 +1,8 @@
 Tackletracker::Application.routes.draw do
+  get "member_tackles/index"
+  get "member_tackles/show"
+  get "member_tackles/edit"
+  get "member_tackles/new"
   get "thank_you" => 'static#thank_you'
   get "about_us" => 'static#about_us' 
   get "how_to" => 'static#how_to'
@@ -8,9 +12,9 @@ Tackletracker::Application.routes.draw do
     :only       => [:new, :create]
   get 'contact-us' => 'contact_us/contacts#new', :as => :contact_us
   
-  devise_for :users
+  resources :member_tackles
 
-  resources :dashboard
+  devise_for :users
 
   root "home#index"
 

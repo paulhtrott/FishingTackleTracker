@@ -1,2 +1,22 @@
 <h1>Track Your Fishing Tackle</h1>
-<p>This is where you will have all your cool stuff.</p>
+<table>
+  <% @member_tackles.each do |tackle| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td>
+         <%= tackle.tackletype_id %>
+      </td>
+      <ul>
+         <li><%= tackle.name %></li>
+         <li><%= tackle.description %></li>
+      </ul>
+      <td>
+        <%= link_to 'Show', tackle %><br>
+        <%= link_to 'Edit', edit_member_tackle_path(tackle) %><br>
+        <%= link_to 'Delete', tackle, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br>
+
+<%= link_to 'Add New Tackle', new_member_tackle_path %>

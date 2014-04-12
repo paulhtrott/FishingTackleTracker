@@ -11,13 +11,13 @@
   <div id="user_nav">
     <% if user_signed_in? %>
       <ul>
-        <li><%= link_to "Dashboard", dashboard_index_path %></li>
+        <li><%= link_to "Dashboard", member_tackles_index_path %></li>
         <li><%= link_to "Request Features", "http://google.com" %></li>
         <li><%= link_to "Contact Us", new_contact_path %></li>
         <li>
           My Account
             <ul>
-              <li>Update Account</li>
+              <li><%= link_to "Update Account", edit_user_registration_path%></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
             </ul>
         </li>
