@@ -37,11 +37,18 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    columnize (0.3.6)
     countries (0.9.3)
       currencies (~> 0.4.2)
     country_select (1.3.1)
       countries (= 0.9.3)
     currencies (0.4.2)
+    debugger (1.6.6)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.3.2)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.3.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -141,6 +148,7 @@ DEPENDENCIES
   bootstrap3-rails (~> 3.1)
   coffee-rails (~> 4.0.0)
   country_select (~> 1.3)
+  debugger
   devise
   jbuilder (~> 1.2)
   jquery-rails

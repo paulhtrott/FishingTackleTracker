@@ -18,15 +18,16 @@ class MemberTacklesController < ApplicationController
   # GET /member_tackles/new
   def new
     @member_tackles = MemberTackle.new
+    @tackle_types = TackleType.find(params[:tackle_type_id])
   end
   
   # POST /member_tackles
   def create
     @member_tackles = MemberTackle.new(member_tackles_params)
-
-    respond_ to do |format|
+    @tackle_types = TackleType.find(params[:tackle_type_id])
+    respond_to do |format|
       if @member_tackles.save
-        format.html { redirect_to @member_tackles, notice: 'Your tackle was successfully added.' }
+        format.html { redirect_to member_tackles_url notice: 'Your tackle was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -37,6 +38,7 @@ class MemberTacklesController < ApplicationController
   def update
     respond_to do |format|
       if @member_tackles.update(member_tackles_params)
+        @tackle_types = TackleType.find(params[:tackle_type_id])
         format.html { redirect_to @member_tackles, notice: 'Your tackle was successfully updated.' }
       else
         format.html { render action: 'edit' }
@@ -45,8 +47,8 @@ class MemberTacklesController < ApplicationController
   end
 
   # DELETE /member_tackles/1
-  def destory
-    @member_tackles.destory
+  def destroy
+    @member_tackles.destroy
     respond_to do |format|
       format.html { redirect_to member_tackles_url }
     end
@@ -55,11 +57,11 @@ class MemberTacklesController < ApplicationController
   private
     # Use callbacks to share a common setup or contraints between action.
     def set_member_tackles
-      @member_tackles = MemberTackles.find(params[:id])
+      @member_tackles = MemberTackle.find(params[:id])
     end
 
     # Never trust parametes from the scary internet, only allow the white list through.
     def member_tackles_params
-      params.require(:member_tackles).permit(:name, :description, :size, :quantity, :color, :modelnumber, :shape, :length, :weight, :brand, :price, :user_id, :tackle_type_id)
+      params.require(:member_tackle).permit(:name, :description, :size, :quantity, :color, :modelnumber, :shape, :length, :weight, :brand, :quantity_wanted, :price, :user_id, :tackle_type_id)
     end
 end

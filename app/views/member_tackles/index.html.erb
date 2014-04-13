@@ -1,2 +1,29 @@
-<h1>MemberTackles#index</h1>
-<p>Find me in app/views/member_tackles/index.html.erb</p>
+<h1>Tackle Tracker</h1>
+<%= link_to 'Add New Tackle', new_member_tackle_path %>
+<br>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<br>
+<% @member_tackles.each do |tackle| %>
+  <ul>
+    <li><%= tackle.tackle_type_id %></li>
+    <li><%= tackle.name %></li>
+    <li><%= tackle.description %></li>
+    <li><%= tackle.size %></li>
+    <li><%= tackle.quantity %></li>
+    <li><%= tackle.color %></li>
+    <li><%= tackle.modelnumber %></li>
+    <li><%= tackle.shape %></li>
+    <li><%= tackle.length %></li>
+    <li><%= tackle.weight %></li>
+    <li><%= tackle.brand %></li>
+    <li><%= tackle.quantity_wanted %></li>
+    <li><%= tackle.price %></li>
+  </ul>
+  <%= link_to 'Show', tackle %><br>
+  <%= link_to 'Edit', edit_member_tackle_path(tackle) %><br>
+  <%= link_to 'Delete', tackle, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %>
+
+<br>

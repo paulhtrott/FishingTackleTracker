@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20140330232144) do
     t.string   "length"
     t.string   "weight"
     t.string   "brand"
-    t.decimal  "price",          precision: 12, scale: 2
+    t.integer  "quantity_wanted"
+    t.decimal  "price",           precision: 12, scale: 2
     t.integer  "user_id"
     t.integer  "tackle_type_id"
     t.datetime "created_at"

@@ -11,6 +11,7 @@ class CreateMemberTackles < ActiveRecord::Migration
       t.string :length
       t.string :weight
       t.string :brand
+      t.integer :quantity_wanted
       t.decimal :price, precision: 12, scale: 2
       t.references :user, index: true
       t.references :tackle_type, index: true

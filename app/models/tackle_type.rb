@@ -1,5 +1,5 @@
 class TackleType < ActiveRecord::Base
-  has_many :member_tackles
+  has_many :member_tackles  
   validates :name, :presence => true  
   validates :tackle_category, :presence => true
 

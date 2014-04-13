@@ -3,6 +3,7 @@ Tackletracker::Application.routes.draw do
   get "member_tackles/show"
   get "member_tackles/edit"
   get "member_tackles/new"
+
   get "thank_you" => 'static#thank_you'
   get "about_us" => 'static#about_us' 
   get "how_to" => 'static#how_to'
