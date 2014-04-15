@@ -1,9 +1,6 @@
 <h1>Tackle Tracker</h1>
 <%= link_to 'Add New Tackle', new_member_tackle_path %>
 <br>
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
 <br>
 <% @member_tackles.each do |tackle| %>
   <ul>

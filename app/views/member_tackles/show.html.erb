@@ -1,2 +1,20 @@
-<h1>MemberTackles#show</h1>
-<p>Find me in app/views/member_tackles/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<p><strong>Title:</strong></p>
+<ul>
+    <li><%= @member_tackles.tackle_type_id %></li>
+    <li><%= @member_tackles.name %></li>
+    <li><%= @member_tackles.description %></li>
+    <li><%= @member_tackles.size %></li>
+    <li><%= @member_tackles.quantity %></li>
+    <li><%= @member_tackles.color %></li>
+    <li><%= @member_tackles.modelnumber %></li>
+    <li><%= @member_tackles.shape %></li>
+    <li><%= @member_tackles.length %></li>
+    <li><%= @member_tackles.weight %></li>
+    <li><%= @member_tackles.brand %></li>
+    <li><%= @member_tackles.quantity_wanted %></li>
+    <li><%= @member_tackles.price %></li>
+  </ul>
+<%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles) %>
+<br>
+<%= link_to 'Tackle Dashboard', member_tackles_path %>

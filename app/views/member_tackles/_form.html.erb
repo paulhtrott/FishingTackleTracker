@@ -22,6 +22,6 @@
   <%= f.input :brand, placeholder: 'Rapala' %>
   <%= f.input :price, placeholder: '5.90' %>
   <%= f.input :quantity_wanted, label: 'Quantity Wanted',  collection: 1..100 %>
-  <%= f.input :tackle_type_id, label: 'Type of Tackle' %>
+  <%= f.input :tackle_type_id, label: 'Tackle Type', collection: TackleType.all.map{ |t| [t.name, t.id] } %>
   <%= f.button :submit %>
 <% end %>

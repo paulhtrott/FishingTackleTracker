@@ -4,7 +4,7 @@ class MemberTacklesController < ApplicationController
 
   # GET /member_tackles  
   def index
-    @member_tackles = MemberTackle.all
+    @member_tackles = MemberTackle.where(:member_tackles => { :user_id => current_user.id })
   end
 
   # GET /member_tackles/1
@@ -18,13 +18,12 @@ class MemberTacklesController < ApplicationController
   # GET /member_tackles/new
   def new
     @member_tackles = MemberTackle.new
-    @tackle_types = TackleType.find(params[:tackle_type_id])
   end
   
   # POST /member_tackles
   def create
     @member_tackles = MemberTackle.new(member_tackles_params)
-    @tackle_types = TackleType.find(params[:tackle_type_id])
+    @member_tackles.user_id = current_user.id
     respond_to do |format|
       if @member_tackles.save
         format.html { redirect_to member_tackles_url notice: 'Your tackle was successfully added.' }
@@ -38,7 +37,6 @@ class MemberTacklesController < ApplicationController
   def update
     respond_to do |format|
       if @member_tackles.update(member_tackles_params)
-        @tackle_types = TackleType.find(params[:tackle_type_id])
         format.html { redirect_to @member_tackles, notice: 'Your tackle was successfully updated.' }
       else
         format.html { render action: 'edit' }
