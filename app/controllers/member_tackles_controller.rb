@@ -26,7 +26,7 @@ class MemberTacklesController < ApplicationController
     @member_tackles.user_id = current_user.id
     respond_to do |format|
       if @member_tackles.save
-        format.html { redirect_to member_tackles_url notice: 'Your tackle was successfully added.' }
+        format.html { redirect_to @member_tackles, notice: 'Your tackle was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -60,6 +60,6 @@ class MemberTacklesController < ApplicationController
 
     # Never trust parametes from the scary internet, only allow the white list through.
     def member_tackles_params
-      params.require(:member_tackle).permit(:name, :description, :size, :quantity, :color, :modelnumber, :shape, :length, :weight, :brand, :quantity_wanted, :price, :user_id, :tackle_type_id)
+      params.require(:member_tackle).permit(:name, :description, :size, :quantity, :color, :modelnumber, :shape, :length, :weight, :brand, :quantity_wanted, :price, :tackle_type_id)
     end
 end
