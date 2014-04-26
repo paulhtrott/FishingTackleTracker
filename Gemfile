@@ -15,6 +15,10 @@ gem 'rails', '4.0.2'
 # Use Devise
 gem 'devise'
 
+# Use paperclip and aws for images
+gem 'paperclip'
+gem 'aws-sdk'
+
 # Use Stripe
 gem 'stripe', '~> 1.9'
 
