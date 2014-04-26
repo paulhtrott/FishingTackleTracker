@@ -60,6 +60,6 @@ class MemberTacklesController < ApplicationController
 
     # Never trust parametes from the scary internet, only allow the white list through.
     def member_tackles_params
-      params.require(:member_tackle).permit(:name, :description, :size, :quantity, :color, :modelnumber, :shape, :length, :weight, :brand, :quantity_wanted, :price, :tackle_type_id)
+      params.require(:member_tackle).permit(:name, :description, :size, :quantity, :color, :modelnumber, :shape, :length, :weight, :brand, :quantity_wanted, :price, :tackle_type_id, :tackle_img)
     end
 end

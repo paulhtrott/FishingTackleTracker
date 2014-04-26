@@ -4,7 +4,8 @@
 <br>
 <% @member_tackles.each do |tackle| %>
   <ul>
-    <li><%= tackle.tackle_type_id %></li>
+    <li><%= image_tag(tackle.tackle_img.url(:medium)) %>
+    <li><%= TackleType.all.select{ |m| m.id == tackle.tackle_type_id } %></li>
     <li><%= tackle.name %></li>
     <li><%= tackle.description %></li>
     <li><%= tackle.size %></li>

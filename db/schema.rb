@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330232144) do
+ActiveRecord::Schema.define(version: 20140426184657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,15 @@ ActiveRecord::Schema.define(version: 20140330232144) do
     t.string   "weight"
     t.string   "brand"
     t.integer  "quantity_wanted"
-    t.decimal  "price",           precision: 12, scale: 2
+    t.decimal  "price",                   precision: 12, scale: 2
     t.integer  "user_id"
     t.integer  "tackle_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tackle_img_file_name"
+    t.string   "tackle_img_content_type"
+    t.integer  "tackle_img_file_size"
+    t.datetime "tackle_img_updated_at"
   end
 
   add_index "member_tackles", ["tackle_type_id"], name: "index_member_tackles_on_tackle_type_id", using: :btree
