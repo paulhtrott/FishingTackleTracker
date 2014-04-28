@@ -8,11 +8,11 @@
 </head>
 <body>
 
-  <div id="user_nav">
+  <div id="nav">
     <% if user_signed_in? %>
       <ul>
         <li><%= link_to "Dashboard", member_tackles_index_path %></li>
-        <li><%= link_to "Request Features", "http://google.com" %></li>
+        <li><%= link_to "Make Suggestion", "http://google.com" %></li>
         <li><%= link_to "Contact Us", new_contact_path %></li>
         <li>
           My Account

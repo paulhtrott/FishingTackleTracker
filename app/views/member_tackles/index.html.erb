@@ -4,7 +4,9 @@
 <br>
 <% @member_tackles.each do |tackle| %>
   <ul>
-    <li><%= image_tag(tackle.tackle_img.url(:medium)) %>
+    <% if tackle.tackle_img.exists? %>
+      <li><%= image_tag(tackle.tackle_img.url(:medium)) %>
+    <% end %>
     <li><%= tackle.tackle_type_id %></li>
     <li><%= tackle.name %></li>
     <li><%= tackle.description %></li>
