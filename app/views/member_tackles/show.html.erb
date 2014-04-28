@@ -15,7 +15,7 @@
     <li><%= @member_tackles.weight %></li>
     <li><%= @member_tackles.brand %></li>
     <li><%= @member_tackles.quantity_wanted %></li>
-    <li><%= @member_tackles.price %></li>
+    <li><%= number_to_currency(@member_tackles.price) %></li>
   </ul>
 <%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles) %>
 <br>
