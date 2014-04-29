@@ -1,6 +1,6 @@
 class MemberTackle < ActiveRecord::Base
-  belongs_to :users, inverse_of: :member_tackles
-  belongs_to :tackle_types
+  belongs_to :user
+  belongs_to :tackle_type
   
   has_attached_file :tackle_img, styles: { thumb: '100x100>', medium: '300x300>' }
   validates_attachment_content_type :tackle_img, :content_type => /\Aimage\/.*\Z/

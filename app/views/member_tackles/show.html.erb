@@ -2,8 +2,9 @@
 <ul>
     <% if @member_tackles.tackle_img.exists? %>
 	<li><%= image_tag(@member_tackles.tackle_img.url(:medium)) %></li>
-    <% end %>
-    <li><%= @member_tackles.tackle_type_id %></li>
+    <% end %> 
+    <li><%= @member_tackles.tackle_type.tackle_category %></li>
+    <li><%= @member_tackles.tackle_type.name %></li>
     <li><%= @member_tackles.name %></li>
     <li><%= @member_tackles.description %></li>
     <li><%= @member_tackles.size %></li>

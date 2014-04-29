@@ -7,7 +7,8 @@
     <% if tackle.tackle_img.exists? %>
       <li><%= link_to image_tag(tackle.tackle_img.url(:thumb)), tackle %>
     <% end %>
-    <li><%= tackle.tackle_type_id %></li>
+    <li><%= tackle.tackle_type.tackle_category %></li>
+    <li><%= tackle.tackle_type.name %></li>
     <li><%= tackle.name %></li>
     <li><%= tackle.description %></li>
     <li><%= tackle.size %></li>
