@@ -9,5 +9,19 @@ class MemberTackle < ActiveRecord::Base
   def self.latest
     MemberTackle.group("tackle_types(tackle_category)")
   end
+
+  def needToBuy
+    if self.quantity_wanted && self.quantity
+      qtywanted = self.quantity_wanted - self.quantity
+      if qtywanted <= 0
+        0
+      else
+        qtywanted
+      end
+    else
+      0
+    end
+  end
+
 end
 

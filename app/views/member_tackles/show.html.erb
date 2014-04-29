@@ -6,17 +6,22 @@
     <li><%= @member_tackles.tackle_type.tackle_category %></li>
     <li><%= @member_tackles.tackle_type.name %></li>
     <li><%= @member_tackles.name %></li>
-    <li><%= @member_tackles.description %></li>
-    <li><%= @member_tackles.size %></li>
-    <li><%= @member_tackles.quantity %></li>
-    <li><%= @member_tackles.color %></li>
-    <li><%= @member_tackles.modelnumber %></li>
-    <li><%= @member_tackles.shape %></li>
-    <li><%= @member_tackles.length %></li>
-    <li><%= @member_tackles.weight %></li>
-    <li><%= @member_tackles.brand %></li>
-    <li><%= @member_tackles.quantity_wanted %></li>
-    <li><%= number_to_currency(@member_tackles.price) %></li>
+    <li><h5>Description</h5> <%= @member_tackles.description %></li>
+    <li><h5>Size</h5> <%= @member_tackles.size %></li>
+    <li><h5>Qty</h5> <%= @member_tackles.quantity %></li>
+    <li><h5>Color</h5> <%= @member_tackles.color %></li>
+    <li><h5>Model</h5> <%= @member_tackles.modelnumber %></li>
+    <li><h5>Shape</h5> <%= @member_tackles.shape %></li>
+    <li><h5>Length</h5> <%= @member_tackles.length %></li>
+    <li><h5>Weight</h5> <%= @member_tackles.weight %></li>
+    <li><h5>Brand</h5> <%= @member_tackles.brand %></li>
+    <% if @member_tackles.needToBuy > 0 %>
+      <li><h5>Need To Buy</h5> <%= @member_tackles.needToBuy %> more</li>
+    <% end %>
+    <li><h5>Price Paid (each)</h5> <%= number_to_currency(@member_tackles.price) %></li>
+    <% if @member_tackles.price && @member_tackles.quantity %>
+      <li><h5>Total Paid</h5> <%= number_to_currency(@member_tackles.price * @member_tackles.quantity) %></li>
+    <% end %>
   </ul>
 <%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles) %>
 <br>
