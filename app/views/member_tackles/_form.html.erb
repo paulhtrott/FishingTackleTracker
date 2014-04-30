@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-  
+  <small>Fill in as much information as you can.</small> 
   <!--<%= f.input :tackle_type_id, label: 'Category', collection: TackleType.select("distinct tackle_category").map{ |t| [t.tackle_category, t.id] } %>-->
   <%= f.input :tackle_type_id, label: 'Type', collection: TackleType.all.map{ |t| [t.name, t.id] } %>
   <%= f.input :name, placeholder: 'Husky Jerk 08'  %>
@@ -22,7 +22,7 @@
   <%= f.input :length, placeholder: '6 inches' %>
   <%= f.input :weight, placeholder: '7 ounces' %>
   <%= f.input :brand, placeholder: 'Rapala' %>
-  <%= f.input :price, placeholder: '5.90' %>
+  <%= f.input :price, label: 'Price Paid (ea)', placeholder: '5.90' %>
   <%= f.input :quantity_wanted, label: 'Quantity Wanted',  collection: 1..100 %>
   <%= f.label :tackle_img, label: 'Upload Image' %>
   <%= f.file_field :tackle_img %>
