@@ -16,7 +16,10 @@ Tackletracker::Application.routes.draw do
   resources :member_tackles
 
   devise_for :users
-
+  
+  # javascript for dynamic tackle selection
+  get "javascripts/dynamic_tackle_type"
+  
   root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
