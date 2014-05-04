@@ -1,0 +1,36 @@
+var tackle = new Array();
+<% for tackle in @tackle -%>
+  tackle.push(new Array('<%=h tackle.tackle_category %>', '<%=h tackle.name %>', '<%=h tackle.name %>'));
+<% end -%>
+
+function tackleCategorySelected() {
+  tackleCategory = $('#tackle_category').val();
+  var options = []; 
+  $('#tackle_type option').each(function() {
+    options.push($(this).val());
+  });
+
+  options.length = 1;
+  i = 0;
+  var select = $('#tackle_type');
+  select.empty();
+
+  $.each(tackle, function() {
+    if (tackle[i][0] == tackleCategory) {
+      select.append('<option value=' + tackle[i][0] + '>' + tackle[i][1] + '</option>');
+    }
+    ++i;
+  });
+
+  if (options.length == 1) {
+    $('#tackle_type').show();
+  } else {
+    $('#tackle_type').show();
+  }
+
+}
+
+$(document).ready(function() {
+  tackleCategorySelected();
+  $('#tackle_category').change(tackleCategorySelected);
+});
