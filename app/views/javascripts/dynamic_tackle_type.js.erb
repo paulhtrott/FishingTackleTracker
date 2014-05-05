@@ -1,6 +1,6 @@
 var tackle = new Array();
 <% for tackle in @tackle -%>
-  tackle.push(new Array('<%=h tackle.tackle_category %>', '<%=h tackle.name %>', '<%=h tackle.name %>'));
+  tackle.push(new Array('<%=h tackle.tackle_category %>', '<%=h tackle.name %>', '<%=h tackle.name %>', '<%=h tackle.id %>'));
 <% end -%>
 
 function tackleCategorySelected() {
@@ -17,7 +17,7 @@ function tackleCategorySelected() {
 
   $.each(tackle, function() {
     if (tackle[i][0] == tackleCategory) {
-      select.append('<option value=' + tackle[i][0] + '>' + tackle[i][1] + '</option>');
+      select.append('<option value=' + tackle[i][3] + '>' + tackle[i][1] + '</option>');
     }
     ++i;
   });
