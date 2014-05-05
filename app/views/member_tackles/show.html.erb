@@ -1,11 +1,9 @@
-<p><h3><%= @member_tackles.name %></h3></p>
+<h3><%= @member_tackles.name %></h3>
+<small><%= @member_tackles.tackle_type.tackle_category %> :: <%= @member_tackles.tackle_type.name %></small>
 <ul>
     <% if @member_tackles.tackle_img.exists? %>
 	<li><%= image_tag(@member_tackles.tackle_img.url(:medium)) %></li>
     <% end %> 
-    <li><%= @member_tackles.tackle_type.tackle_category %></li>
-    <li><%= @member_tackles.tackle_type.name %></li>
-    <li><%= @member_tackles.name %></li>
     <li><h5>Description</h5> <%= @member_tackles.description %></li>
     <li><h5>Size</h5> <%= @member_tackles.size %></li>
     <li><h5>Qty</h5> <%= @member_tackles.quantity %></li>
