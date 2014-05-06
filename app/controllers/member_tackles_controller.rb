@@ -22,7 +22,6 @@ class MemberTacklesController < ApplicationController
   
   # POST /member_tackles
   def create
-    debugger
     @member_tackles = MemberTackle.new(member_tackles_params)
     @member_tackles.user_id = current_user.id
     respond_to do |format|

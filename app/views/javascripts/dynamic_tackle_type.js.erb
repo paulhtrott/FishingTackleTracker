@@ -5,12 +5,6 @@ var tackle = new Array();
 
 function tackleCategorySelected() {
   tackleCategory = $('#tackle_category').val();
-  var options = []; 
-  $('#tackle_type option').each(function() {
-    options.push($(this).val());
-  });
-
-  options.length = 1;
   i = 0;
   var select = $('#tackle_type');
   select.empty();
@@ -21,16 +15,27 @@ function tackleCategorySelected() {
     }
     ++i;
   });
-
-  if (options.length == 1) {
-    $('#tackle_type').show();
-  } else {
-    $('#tackle_type').show();
+/*
+  if (tackleCategory != "")
+  {
+    $('#tackle_type').show();  
   }
-
+  else
+  {   
+    $('#tackle_type').hide();
+  }
+ */
+  
+  $(document).on('load', '#tackle_type', function(e) {
+    console.log(this.options[e.target.selectedIndex].text);
+  });
 }
 
 $(document).ready(function() {
+ //$('#tackle_type').hide();
+  selectedOption = $("#tackle_type option:selected").val();
   tackleCategorySelected();
+  $("#tackle_type").val(selectedOption);
   $('#tackle_category').change(tackleCategorySelected);
 });
+

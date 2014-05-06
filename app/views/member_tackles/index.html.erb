@@ -13,15 +13,15 @@
     <li><h5>Description</h5> <%= tackle.description %></li>
     <li><h5>Size</h5> <%= tackle.size %></li>
     <li><h5>Qty</h5> <%= tackle.quantity %></li>
+    <% if tackle.needToBuy > 0 %>
+      <li><h5>Need To Buy</h5> <%= tackle.needToBuy %> more</li>
+    <% end %>
     <li><h5>Color</h5> <%= tackle.color %></li>
     <li><h5>Model</h5> <%= tackle.modelnumber %></li>
     <li><h5>Shape</h5> <%= tackle.shape %></li>
     <li><h5>Length</h5> <%= tackle.length %></li>
     <li><h5>Weight</h5> <%= tackle.weight %></li>
     <li><h5>Brand</h5> <%= tackle.brand %></li>
-    <% if tackle.needToBuy > 0 %>
-      <li><h5>Need To Buy</h5> <%= tackle.needToBuy %> more</li>
-    <% end %>
     <li><h5>Price Paid (each)</h5> <%= number_to_currency(tackle.price) %></li>
     <% if tackle.price && tackle.quantity %>
       <li><h5>Total Paid</h5> <%= number_to_currency(tackle.price * tackle.quantity) %></li>
