@@ -9,7 +9,7 @@ class MemberTackle < ActiveRecord::Base
   validates_attachment_size :tackle_img, :in => 0..10.megabytes
   
   def self.latest
-    MemberTackle.group("tackle_types(tackle_category)")
+    MemberTackle.group(:id)
   end
 
   def needToBuy
