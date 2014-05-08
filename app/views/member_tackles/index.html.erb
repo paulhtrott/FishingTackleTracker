@@ -2,9 +2,9 @@
 <%= link_to 'Add New Tackle', new_member_tackle_path %>
 <br>
 <br>
-<% TackleType.uniq.pluck(:tackle_category).each do |category| %>
+<% TackleType.uniq.pluck(:tackle_category).sort.each do |category| %>
   <% shown_title = false %>
-  <% @member_tackles.each do |tackle| %>
+  <% @member_tackles.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase }.each do |tackle| %>
     <% if category == tackle.tackle_type.tackle_category %>
       <% unless shown_title %>
         <h3><%= category %></h3>

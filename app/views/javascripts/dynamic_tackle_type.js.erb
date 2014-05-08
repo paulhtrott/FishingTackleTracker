@@ -15,6 +15,9 @@ function tackleCategorySelected() {
     }
     ++i;
   });
+
+  sortTackleTypes();
+
 /*
   if (tackleCategory != "")
   {
@@ -24,11 +27,12 @@ function tackleCategorySelected() {
   {   
     $('#tackle_type').hide();
   }
- */
+ 
   
   $(document).on('load', '#tackle_type', function(e) {
     console.log(this.options[e.target.selectedIndex].text);
   });
+  */
 }
 
 $(document).ready(function() {
@@ -39,3 +43,19 @@ $(document).ready(function() {
   $('#tackle_category').change(tackleCategorySelected);
 });
 
+function sortTackleTypes() {
+  var options = $('select#tackle_type option');
+  var arr = options.map(function(_, o) {
+      return {
+          t: $(o).text(),
+          v: o.value
+      };
+  }).get();
+  arr.sort(function(o1, o2) {
+      return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0;
+  });
+  options.each(function(i, o) {
+      o.value = arr[i].v;
+      $(o).text(arr[i].t);
+  });
+}

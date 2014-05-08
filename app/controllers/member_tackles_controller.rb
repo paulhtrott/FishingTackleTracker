@@ -4,7 +4,7 @@ class MemberTacklesController < ApplicationController
 
   # GET /member_tackles  
   def index
-    @member_tackles = MemberTackle.where(:member_tackles => { :user_id => current_user.id })
+    @member_tackles = MemberTackle.where(:member_tackles => { :user_id => current_user.id }).order(:name)
   end
 
   # GET /member_tackles/1
