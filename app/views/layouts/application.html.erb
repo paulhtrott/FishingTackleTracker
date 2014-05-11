@@ -35,17 +35,11 @@
             <li><%= link_to "Dashboard", member_tackles_index_path %></li>
             <li><%= link_to "Make Suggestion (Coming Soon)", "http://google.com" %></li>
             <li><%= link_to "Contact Us", new_contact_path %></li>
+            <li><%= link_to "Edit Account", edit_user_registration_path%></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-              <ul class="dropdown-menu"> 
-                <li><%= link_to "Update Account", edit_user_registration_path%></li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-              </ul>
-            </li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
           </ul>
-          <p>Hi <%= current_user.email %>! Not you? <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></p>
         <% else %>
           <ul class="nav navbar-nav">  
             <li><%= link_to "Dashboard", member_tackles_index_path %></li>
@@ -59,7 +53,8 @@
             <li><%= link_to "Track My Tackle", new_user_session_path %></li>
           </ul>
         <% end %>
-      </nav>
+      </nav> 
+      <% if user_signed_in? %><p>Hi <span class="orange"><%= current_user.email %></span>! Not you? <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></p><% end %>   
     </div>
   </header>
 

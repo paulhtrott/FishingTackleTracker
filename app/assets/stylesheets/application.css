@@ -12,3 +12,22 @@
  *= require_self
  *= require_tree .
  */
+
+
+.icon-bar {
+  background-color: #D15633;
+}
+
+button.navbar-toggle {
+  background-color: #B5CBE9;
+}
+
+a {
+ color: #293545;
+}
+
+.orange {
+  color: #D15633;
+}
+
+
