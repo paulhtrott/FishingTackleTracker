@@ -15,20 +15,42 @@
           <li><%= link_to image_tag(tackle.tackle_img.url(:thumb)), tackle %>
         <% end %>
         <li><%= tackle.tackle_type.name %></li>
-        <li><%= tackle.name %></li>
-        <li><h5>Description</h5> <%= tackle.description %></li>
-        <li><h5>Size</h5> <%= tackle.size %></li>
-        <li><h5>Qty</h5> <%= tackle.quantity %></li>
+        <% if !tackle.name.empty? %>
+          <li><%= tackle.name %></li>
+        <% end %>
+        <% if !tackle.description.empty? %>
+          <li><h5>Description</h5> <%= tackle.description %></li>
+        <% end %>
+        <% if !tackle.size.empty? %>
+          <li><h5>Size</h5> <%= tackle.size %></li>
+        <% end %>
+        <% if tackle.quantity >  0 %>
+          <li><h5>Qty</h5> <%= tackle.quantity %></li>
+        <% end %>
         <% if tackle.needToBuy > 0 %>
           <li><h5>Need To Buy</h5> <%= tackle.needToBuy %> more</li>
         <% end %>
-        <li><h5>Color</h5> <%= tackle.color %></li>
-        <li><h5>Model</h5> <%= tackle.modelnumber %></li>
-        <li><h5>Shape</h5> <%= tackle.shape %></li>
-        <li><h5>Length</h5> <%= tackle.length %></li>
-        <li><h5>Weight</h5> <%= tackle.weight %></li>
-        <li><h5>Brand</h5> <%= tackle.brand %></li>
-        <li><h5>Price Paid (each)</h5> <%= number_to_currency(tackle.price) %></li>
+        <% if !tackle.color.empty? %>
+          <li><h5>Color</h5> <%= tackle.color %></li>
+        <% end %>
+        <% if !tackle.modelnumber.empty? %>
+          <li><h5>Model</h5> <%= tackle.modelnumber %></li>
+        <% end %>
+        <% if !tackle.shape.empty? %>
+          <li><h5>Shape</h5> <%= tackle.shape %></li>
+        <% end %>
+        <% if !tackle.length.empty? %>
+          <li><h5>Length</h5> <%= tackle.length %></li>
+        <% end %>
+        <% if !tackle.weight.empty? %>
+          <li><h5>Weight</h5> <%= tackle.weight %></li>
+        <% end %>
+        <% if !tackle.brand.empty? %>
+          <li><h5>Brand</h5> <%= tackle.brand %></li>
+        <% end %>
+        <% if tackle.price > 0 %>
+          <li><h5>Price Paid (each)</h5> <%= number_to_currency(tackle.price) %></li>
+        <% end %>
         <% if tackle.price && tackle.quantity %>
           <li><h5>Total Paid</h5> <%= number_to_currency(tackle.price * tackle.quantity) %></li>
         <% end %>
