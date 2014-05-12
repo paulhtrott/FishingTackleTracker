@@ -38,7 +38,7 @@
             <li><%= link_to "Edit Account", edit_user_registration_path%></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "orange"  %></li>
           </ul>
         <% else %>
           <ul class="nav navbar-nav">  
@@ -50,7 +50,7 @@
             <li><%= link_to "Contact Us", new_contact_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Track My Tackle", new_user_session_path %></li>
+            <li><%= link_to "Track My Tackle", new_user_session_path, :class => "orange"  %></li>
           </ul>
         <% end %>
       </nav> 
