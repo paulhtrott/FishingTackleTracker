@@ -61,3 +61,13 @@
   background-color: #fff;
   border-color: #285e8e;
 }
+
+.btn-primary.blue:hover, .btn-primary.blue:focus, .btn-primary.blue:active, .btn-primary.blue.active, .open .dropdown-toggle.btn-primary.blue {
+  color: #fff;
+  background-color: #165680;
+  border-color: #285e8e;
+}
+
+ul li {
+  list-style-type: none;
+}
