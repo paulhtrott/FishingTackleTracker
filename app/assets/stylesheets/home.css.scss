@@ -71,3 +71,34 @@
 ul li {
   list-style-type: none;
 }
+
+.tackle_box {
+  margin-top: 10px;
+  border: 1px solid #165680;  
+  background-color: #F0F5FB;
+  padding: 0px;
+}
+
+.tackle_box h3 {
+  padding: 10px 0px 10px 0px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #165680;
+  color: #fff;
+}
+
+.tackle_box ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.tackle_box ul li {
+  padding-left: 10px;
+  font-weight: 500;
+  background: #F0F5FB;
+  line-height: 2.2em;
+}
+
+.tackle_box ul li:nth-child(odd) {
+  background: #fff;
+}

@@ -2,73 +2,82 @@
   <div class="container">
     <h1>Keep Track of Your Fishing Tackle</h1>
     <p>Keeping track of your fishing tackle has never been <em><strong>easier</strong></em>!<br>
-With FishingTackleTracker&trade; you can record and update your <em><strong>personal</strong></em> fishing tackle or boating supplies quickly and easily.</p>
+With FishingTackleTracker you can record and update your <em><strong>personal</strong></em> fishing tackle or boating supplies quickly and easily.</p>
     <!--<h2>All for only $1 per month.</h2>-->
     <h2>Currently <span class="orange">FREE</span> for Alpha Testers</h2>
     <p><%= link_to "Sign Up Now", new_user_registration_path, :class => "btn btn-primary btn-lg active", :role => "button" %>  <%= link_to "Login Here", new_user_session_path, :class => "btn btn-primary btn-lg active", :role => "button" %></p>
   </div> 
 </div>
 <div class="container">
-   <h2 class="title">What's In My Tackle Box?</h2>
-       <ul>
-         <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I hate buying what I already have in my tackle box!</h3></li>
-         <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I can't remember what I have in my tackle supplies!</h3></li>
-         <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I'd love to see what I already own!</h3></li>
-         <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I have to be able to view my tackle away from home!</h3></li>
-       </ul>
-      <br>
-      <hr>
-      <br>
-      <h2>Finally, a place I can keep track of <span class="orange"><em>everything</em></span> in my fishing arsenal!</h2>
-      <p><%= link_to "Sign Up Now", new_user_registration_path, :class => "btn btn-primary btn-lg active blue", :role => "button" %></p>
+  <h2 class="title">What's In My Tackle Box?</h2>
+    <ul>
+      <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I hate buying what I already have in my tackle box!</h3></li>
+      <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I can't remember what I have in my tackle supplies!</h3></li>
+      <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I would love to see what I already own!</h3></li>
+      <li><h3><span class="glyphicon glyphicon-ok orange"></span> &nbsp;I want to be able to view my tackle away from home!</h3></li>
+    </ul>
+    <br>
+    <hr>
+    <h2>Finally, a place I can keep track of <span class="orange"><em>everything</em></span> in my fishing arsenal!</h2>
+    <br>
+    <p><%= link_to "Sign Up Now", new_user_registration_path, :class => "btn btn-primary btn-lg active blue", :role => "button" %></p>
     <hr>
     <h2>What Type of Fishing Tackle Can I Track? <span class="orange"><strong><em>All!</em></strong></span></h2>
-      <p>Just a <em>few</em> of the tackle options you can track include:</p>
+    <br>
+    <p>Just a <span class="orange"><em>few</em></span> of the tackle options you can track include:</p>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <h3>Lures</h3>
-          <ul>
-            <li>Buzzbait</li>
-            <li>Hard Bait</li>
-            <li>Jerk Bait</li>
-            <li>Poppers</li>
-            <li>Trolling</li>
-            <li>Offshore</li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h3>Rods</h3>
+          <div class="tackle_box">
+            <h3>Lures</h3>
             <ul>
-              <li>Casting</li>
-              <li>Conventional</li>
+              <li>Buzzbait</li>
+              <li>Hard Bait</li>
+              <li>Jerk Bait</li>
+              <li>Poppers</li>
+              <li>Trolling</li>
               <li>Offshore</li>
-              <li>Pole</li>
-              <li>Spinning</li>
-              <li>Surf</li>
             </ul>
+          </div>
         </div>
         <div class="col-md-3">
-          <h3>Reels</h3>
-            <ul>
-              <li>Bait Casting</li>
-              <li>Conventional Level Wind</li>
-              <li>Electric</li>
-              <li>Lever Drag</li>
-              <li>Line Counter</li>
-              <li>Spinning</li>
-            </ul>
+          <div class="tackle_box">
+            <h3>Rods</h3>
+              <ul>
+                <li>Casting</li>
+                <li>Conventional</li>
+                <li>Offshore</li>
+                <li>Pole</li>
+                <li>Spinning</li>
+                <li>Surf</li>
+              </ul>
+          </div>
         </div>
         <div class="col-md-3">
-          <h3>Plus More</h3>
-            <ul>
-              <li>Accesorries</li>
-              <li>Boating</li>
-              <li>Electronics</li>
-              <li>Fly Fishing</li>
-              <li>Terminal Tackle</li>
-              <li class="orange">You Buy it, You Track it</li>
-           </ul>
+          <div class="tackle_box">
+            <h3>Reels</h3>
+              <ul>
+                <li>Bait Casting</li>
+                <li>Conventional Level Wind</li>
+                <li>Electric</li>
+                <li>Lever Drag</li>
+                <li>Line Counter</li>
+                <li>Spinning</li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="tackle_box">
+            <h3>Plus More</h3>
+              <ul>
+                <li>Accessories</li>
+                <li>Boating</li>
+                <li>Electronics</li>
+                <li>Fly Fishing</li>
+                <li>Terminal Tackle</li>
+                <li class="orange">You Buy it, You Can Track it!</li>
+             </ul>
+          </div> 
         </div>
       </div>
     </div>
