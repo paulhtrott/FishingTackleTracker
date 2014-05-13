@@ -13,6 +13,9 @@
  *= require_tree .
  */
 
+.navbar {
+  margin-bottom: 0px;
+}
 
 .icon-bar {
   background-color: #D15633;

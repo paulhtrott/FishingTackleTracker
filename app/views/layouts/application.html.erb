@@ -27,7 +27,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">FishingTackleTracker&trade;</a>
+        <a href="/" class="navbar-brand orange">FishingTackleTracker&trade;</a>
       </div>
       <nav class="collapse navbar-collapse" role="navigation">
         <% if user_signed_in? %>
@@ -36,20 +36,15 @@
             <li><%= link_to "Make Suggestion (Coming Soon)", "http://google.com" %></li>
             <li><%= link_to "Contact Us", new_contact_path %></li>
             <li><%= link_to "Edit Account", edit_user_registration_path%></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "orange"  %></li>
           </ul>
         <% else %>
           <ul class="nav navbar-nav">  
-            <li><%= link_to "Dashboard", member_tackles_index_path %></li>
             <li><%= link_to "Home", "/" %></li>
             <li><%= link_to "How Do I Use This?", how_to_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "About Us", about_us_path %></li>
             <li><%= link_to "Contact Us", new_contact_path %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Track My Tackle", new_user_session_path, :class => "orange"  %></li>
           </ul>
         <% end %>

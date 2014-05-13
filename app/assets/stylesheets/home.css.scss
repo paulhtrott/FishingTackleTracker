@@ -1,3 +1,63 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.header-container {
+  position: relative;
+  padding: 30px 15px;
+  color: #B9CCD9;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  background-color: #165680;
+  background-image: -webkit-linear-gradient(top,#1C6BA0 0,#165680 100%);
+  background-image: linear-gradient(to bottom,#1C6BA0 0,#165680 100%);
+  background-repeat: repeat-x;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1C6BA0', endColorstr='#165680', GradientType=0)
+}
+
+.header-container {
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+.header-container h1 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.header-container p {
+  margin-bottom: 0;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.header-container .container {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .header-container h1 {
+    font-size: 60px;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-container h1,.header-container p {
+    margin-right: 20px;
+  }
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: #165680;
+  background-color: #fff;
+  border-color: #285e8e;
+}
