@@ -1,17 +1,44 @@
-<h1>How Do I Use This?</h1>
-<p>Simple answer, <em>It's easy!</em></p>
-<dl>
-  <dt>Step 1 &mdash; Sign Up to use the site.</dt>
-    <dd>Click on a <%= link_to "Sign Up", new_user_registration_path %> sign link</dd>
-    <dd>After signing, up you will be taken to your <strong>Dashboard</strong> to start tracking your fishing tackle.</dd>
-  <dt>Step 2 &mdash; Start Adding Tackle.</dt>
-    <dd>Click the Add New Tackle Button</dd>
-    <dd>This will take you to a page where you can start adding your awesome fishing and boating supplies to your Tackle Tracker Dashboard.</dd>
-  <dt>Step 3 &mdash; Go back to your Dashboard.</dt>
-    <dd>After you're done adding your awesome tackle, click Dashboard or Tackle Dashboard links</dd>
-  <dt>Step 4 &mdash; View your Awesome Tackle on the Tackle Tracker Dashboard</dt>
-    <dd>Now you can view all of your fishing tackle and boating supply information.</dd>
-    <dd><em>Remember your tracker is only as good as the information you enter.</em></dd>
-    <dd><strong><em>The more information you enter the less you will have to remember!</em></strong></dd>
-  <dt>Step 5 &mdash; Have fun keeping track of all of your fishing tackle and boating supplies!</dt>
-</dl>
+<div class="header-container">
+  <div class="container">
+    <h1>How Do I Use This?</h1>
+    <p>Simple answer, <em>It's easy!</em></p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="step-info col-md-12">  
+      <h2>Remember your tracker is only as good as the information you enter.</h2>
+      <p><strong><em>The more information you enter the less you will have to remember!</em></strong></p>
+      <div class="row">
+        <div class="step-info col-md-2">
+          <h2 class="step orange">Step 1</h2>
+          <p>Sign up to use the site.</p>
+          <%= link_to "Sign Up Now", new_user_registration_path, :class => "btn btn-primary btn-lg active", :role => "button" %>
+          <br>
+          <br>
+          <p>After signing, up you will be taken to your <span class="orange"><em>Dashboard</em></span> to start tracking your fishing tackle.</p>
+        </div>
+        <div class="step-info col-md-2">
+          <h2 class="step orange">Step 2</h2>
+          <p>Start Adding Tackle.</p>
+          <p>Click the Add New Tackle Button</p>
+          <p>This will take you to a page where you can start adding your awesome fishing and boating supplies to your Tackle Tracker Dashboard.</p>
+        </div>
+        <div class="step-info col-md-2">
+          <h2 class="step orange">Step 3</h2>
+          <p>Go back to your Dashboard.</p>
+          <p>After you're done adding your awesome tackle, click Dashboard or Tackle Dashboard links.</p>
+        </div>
+        <div class="step-info col-md-2">
+          <h2 class="step orange">Step 4</h2>
+          <p>View your Awesome Tackle on the Tackle Tracker Dashboard</p>
+          <p>Now you can view all of your fishing tackle and boating supply information.</p>
+        </div>
+        <div class="step-info col-md-2">
+          <h2 class="step orange">Step 5</h2>
+          <p>Have fun keeping track of all of your fishing tackle and boating supplies!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
