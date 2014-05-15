@@ -77,6 +77,9 @@ Tackletracker::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Send Grid for devise
+  config.action_mailer.default_url_options = { :host => 'smtp.sendgrid.net' }
   
   # Paperclip and S3 configuration (for image uploads)
   config.paperclip_defaults = {

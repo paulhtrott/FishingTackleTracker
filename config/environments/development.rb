@@ -4,6 +4,7 @@ Tackletracker::Application.configure do
   #mailcatcher settings
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 } 
+  config.action_mailer.default_url_options = { :host => "localhost", :port => 1025 }
 
   # Paperclip and S3 configuration (for image uploads)
   config.paperclip_defaults = {

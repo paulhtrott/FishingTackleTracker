@@ -13,6 +13,10 @@
  *= require_tree .
  */
 
+#flash_notice {
+  color: #D15633;
+}
+
 .alert-error {
   color: red;
 }
