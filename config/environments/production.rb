@@ -79,7 +79,7 @@ Tackletracker::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Send Grid for devise
-  config.action_mailer.default_url_options = { :host => 'smtp.sendgrid.net' }
+  config.action_mailer.default_url_options = { :host => 'gentle-savannah-9208.herokuapp.com' }
   
   # Paperclip and S3 configuration (for image uploads)
   config.paperclip_defaults = {
