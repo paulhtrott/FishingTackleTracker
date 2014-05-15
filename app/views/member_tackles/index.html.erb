@@ -1,10 +1,11 @@
 <div class="header-container">
   <div class="container">
     <h1>Tackle Tracker Dashboard</h1>
+    <p>Keeping track of your inventory of tackle and boating supplies.</p>
   </div>
 </div>
 <div class="container">
-  <%= link_to 'Add New Tackle', new_member_tackle_path %>
+  <%= link_to 'Add New Tackle', new_member_tackle_path, :class => "btn btn-primary btn-lg blue", :role => "button" %>
   <br>
   <br>
   <% TackleType.uniq.pluck(:tackle_category).sort.each do |category| %>

@@ -1,43 +1,42 @@
 <% javascript 'dynamic_tackle_type' %>
-<div class="container"
-<%= simple_form_for @member_tackles do |f| %>
-  <% if @member_tackles.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@member_tackles.errors.count, "error") %> prohibited this tackle from being saved:</h2>
-      <ul>
-        <% @member_tackles.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <%= simple_form_for @member_tackles do |f| %>
+    <% if @member_tackles.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@member_tackles.errors.count, "error") %> prohibited this tackle from being saved:</h2>
+        <ul>
+          <% @member_tackles.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <small>Fill in as much information as you can:</small> 
+    <% if (params[:action] != "edit") %>
+      <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category', collection: TackleType.uniq.pluck(:tackle_category).sort %>
+      <%= f.input :tackle_type_id, required: true, input_html: {id: 'tackle_type'}, label: 'Select Type', collection: TackleType.all.map{ |t| [t.name, t.id] }.sort %>
+    <% else %>
+      <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category', collection: TackleType.uniq.pluck(:tackle_category).sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).tackle_category %>
+      <%= f.input :tackle_type_id, required: true, input_html: {id: 'tackle_type'}, label: 'Select Type', collection: TackleType.all.map{ |t| [t.name, t.id] }.sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).id %>
+    <% end %>
+    <%= f.input :name, placeholder: 'Husky Jerk 08'  %>
+    <%= f.input :description, as: :text, placeholder: 'Perfectly balanced, the Husky Jerk can be cast or trolled at any speed and still run true.' %>
+    <%= f.input :size, placeholder: 'Medium' %>
+    <% if (params[:action] != "edit") %>
+      <%= f.input :quantity, collection: 1..100, selected: 1  %>
+      <%= f.input :quantity_wanted, label: 'Quantity Wanted',  collection: 1..100, selected: 1 %>
+    <% else %>
+      <%= f.input :quantity, collection: 1..100, selected: MemberTackle.find(params[:id]).quantity %>
+      <%= f.input :quantity_wanted, label: 'Quantity Wanted', collection: 1..100, selected: MemberTackle.find(params[:id]).quantity_wanted %>
+    <% end %>
+    <%= f.input :color, placeholder: 'Red/Blue' %>
+    <%= f.input :modelnumber, label: 'Model Number', placeholder: 'C0407890' %>
+    <%= f.input :shape, placeholder: 'slanted head' %>
+    <%= f.input :length, placeholder: '6 inches' %>
+    <%= f.input :weight, placeholder: '7 ounces' %>
+    <%= f.input :brand, placeholder: 'Rapala' %>
+    <%= f.input :price, label: 'Price Paid (ea)', placeholder: '5.90' %>
+    <%= f.label :tackle_img, label: 'Upload Image' %>
+    <%= f.file_field :tackle_img %>
+    <br>
+    <%= f.button :submit, 'Submit Tackle', :class => "btn btn-primary btn-lg blue", :role => "button" %>
   <% end %>
-  <small>Fill in as much information as you can:</small> 
-  <% if (params[:action] != "edit") %>
-    <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category', collection: TackleType.uniq.pluck(:tackle_category).sort %>
-    <%= f.input :tackle_type_id, required: true, input_html: {id: 'tackle_type'}, label: 'Select Type', collection: TackleType.all.map{ |t| [t.name, t.id] }.sort %>
-  <% else %>
-    <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category', collection: TackleType.uniq.pluck(:tackle_category).sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).tackle_category %>
-    <%= f.input :tackle_type_id, required: true, input_html: {id: 'tackle_type'}, label: 'Select Type', collection: TackleType.all.map{ |t| [t.name, t.id] }.sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).id %>
-  <% end %>
-  <%= f.input :name, placeholder: 'Husky Jerk 08'  %>
-  <%= f.input :description, as: :text, placeholder: 'Perfectly balanced, the Husky Jerk can be cast or trolled at any speed and still run true.' %>
-  <%= f.input :size, placeholder: 'Medium' %>
-  <% if (params[:action] != "edit") %>
-    <%= f.input :quantity, collection: 1..100, selected: 1  %>
-    <%= f.input :quantity_wanted, label: 'Quantity Wanted',  collection: 1..100, selected: 1 %>
-  <% else %>
-    <%= f.input :quantity, collection: 1..100, selected: MemberTackle.find(params[:id]).quantity %>
-  <%= f.input :quantity_wanted, label: 'Quantity Wanted', collection: 1..100, selected: MemberTackle.find(params[:id]).quantity_wanted %>
-  <% end %>
-  <%= f.input :color, placeholder: 'Red/Blue' %>
-  <%= f.input :modelnumber, label: 'Model Number', placeholder: 'C0407890' %>
-  <%= f.input :shape, placeholder: 'slanted head' %>
-  <%= f.input :length, placeholder: '6 inches' %>
-  <%= f.input :weight, placeholder: '7 ounces' %>
-  <%= f.input :brand, placeholder: 'Rapala' %>
-  <%= f.input :price, label: 'Price Paid (ea)', placeholder: '5.90' %>
-  <%= f.label :tackle_img, label: 'Upload Image' %>
-  <%= f.file_field :tackle_img %>
-  <%= f.button :submit %>
-<% end %>
-</div>
