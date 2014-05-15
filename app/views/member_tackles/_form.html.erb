@@ -1,5 +1,5 @@
 <% javascript 'dynamic_tackle_type' %>
-
+<div class="container"
 <%= simple_form_for @member_tackles do |f| %>
   <% if @member_tackles.errors.any? %>
     <div id="error_explanation">
@@ -40,3 +40,4 @@
   <%= f.file_field :tackle_img %>
   <%= f.button :submit %>
 <% end %>
+</div>

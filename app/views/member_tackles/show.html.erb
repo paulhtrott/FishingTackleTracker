@@ -1,6 +1,11 @@
-<h3><%= @member_tackles.name %></h3>
-<small><%= @member_tackles.tackle_type.tackle_category %> :: <%= @member_tackles.tackle_type.name %></small>
-<ul>
+<div class="header-container">
+  <div class="container">
+    <h1><%= @member_tackles.name %></h1>
+    <small><%= @member_tackles.tackle_type.tackle_category %> :: <%= @member_tackles.tackle_type.name %></small>
+  </div>
+</div>
+<div class="container">
+<ul class="tackle-display">
     <% if @member_tackles.tackle_img.exists? %>
 	<li><%= image_tag(@member_tackles.tackle_img.url(:medium)) %></li>
     <% end %> 
@@ -40,7 +45,10 @@
     <% if !@member_tackles.price.blank? && !@member_tackles.quantity.blank? %>
       <li><h5>Total Paid</h5> <%= number_to_currency(@member_tackles.price * @member_tackles.quantity) %></li>
     <% end %>
-  </ul>
-<%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles) %>
+</ul>
+<%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles), :class => "btn btn-primary btn-lg active blue", :role => "button" %>
 <br>
-<%= link_to 'return to Tackle Dashboard', member_tackles_path %>
+<br>
+<br>
+<%= link_to 'Return to Tackle Dashboard', member_tackles_path, :class => "btn btn-default btn-lg", :role => "button" %>
+</div>
