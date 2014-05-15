@@ -1,0 +1,23 @@
+<div class="header-container">
+  <div class="container">
+    <h1>Sign up</h1>
+    <p>Start tracking your fishing tackle and boating supplies now.</p>
+  </div>
+</div>
+<div class="container">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %><br>
+      <%= f.input :password, required: true %><br>
+      <%= f.input :password_confirmation, required: true %>
+    </div>
+    <br>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", :class => "btn btn-primary btn-lg active blue", :role => "button" %>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to "Sign in", new_user_session_path, :class => "btn btn-primary btn-sm", :role => "button" %>
+</div>

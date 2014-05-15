@@ -13,6 +13,15 @@
  *= require_tree .
  */
 
+.alert-error {
+  color: red;
+}
+
+.help-inline {
+  padding-left: 7px;
+  color: red;
+}
+
 .navbar {
   margin-bottom: 0px;
 }
