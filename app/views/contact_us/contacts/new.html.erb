@@ -1,44 +1,61 @@
-<h1><%= t('.contact_us') %></h1>
-<p>Please fill out your contact information below. Explain your request or concern. For security reasons, please <strong>do not</strong> include sensitive information, such as your password.
-<p>We will contact you back as soon as possible.</p>
-<p>Thank you in advance.</p>
-<br>
-<small>*All fields required</small>
-<%= form_for @contact, :url => contacts_path do |f| %>
- <li class='string required' id='contact_us_contact_name_input'>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <% if f.object.errors[:name].present? %>
-      <p class='inline-error'><%= f.object.errors[:name].join(' and ') %></p>
-    <% end %>
-  </li>
-  <li style="display: none;">
-    <%= f.label :nickname %><br/>
-    <%= f.text_field :nickname %>
-  </li>
-  <li class='string required' id='contact_us_contact_email_input'>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <% if f.object.errors[:email].present? %>
-      <p class='inline-error'><%= f.object.errors[:email].join(' and ') %></p>
-    <% end %>
-  </li>
-  <li class='string required' id='contact_us_contact_subject_input'>
-    <%= f.label :subject %>
-    <%= f.text_field :subject %>
-    <% if f.object.errors[:subject].present? %>
-      <p class='inline-error'><%= f.object.errors[:subject].join(' and ') %></p>
-    <% end %>
-  </li>
-  <li class='text required' id='contact_us_contact_message_input'>
-    <%= f.label :message %>
-    <br>
-    <%= f.text_area :message %>
-    <% if f.object.errors[:message].present? %>
-      <p class='inline-error'><%= f.object.errors[:message].join(' and ') %></p>
-    <% end %>
-  </li>
-  <li class='commit'>
-    <%= f.submit "Send Form" %>
-  </li>
-<% end %>
+<div class="header-container">
+  <div class="container">
+    <h1><%= t('.contact_us') %></h1>
+    <p>Please fill out your contact information below. Explain your request or concern. For security reasons, please <strong>do not</strong> include sensitive information, such as your password.
+  </div>
+</div>
+<div class="container">
+  <p>We will contact you back as soon as possible.</p>
+  <p>Thank you in advance.</p>
+  <small>*All fields required</small>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <%= form_for @contact, :url => contacts_path do |f| %>
+        <ul>
+          <li class='string required' id='contact_us_contact_name_input'>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <% if f.object.errors[:name].present? %>
+              <p class='inline-error'><%= f.object.errors[:name].join(' and ') %></p>
+            <% end %>
+          </li>
+          <li style="display: none;">
+            <%= f.label :nickname %><br/>
+            <%= f.text_field :nickname %>
+          </li>
+          <br>
+          <li class='string required' id='contact_us_contact_email_input'>
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+            <% if f.object.errors[:email].present? %>
+              <p class='inline-error'><%= f.object.errors[:email].join(' and ') %></p>
+            <% end %>
+          </li>
+          <br>
+          <li class='string required' id='contact_us_contact_subject_input'>
+            <%= f.label :subject %>
+            <%= f.text_field :subject %>
+            <% if f.object.errors[:subject].present? %>
+              <p class='inline-error'><%= f.object.errors[:subject].join(' and ') %></p>
+            <% end %>
+          </li>
+          <br>
+          <li class='text required' id='contact_us_contact_message_input'>
+            <%= f.label :message %>
+            <br>
+            <%= f.text_area :message %>
+            <% if f.object.errors[:message].present? %>
+              <p class='inline-error'><%= f.object.errors[:message].join(' and ') %></p>
+            <% end %>
+          </li>
+          <br>
+          <li class='commit'>
+            <%= f.submit "Send Form", :class => "btn btn-primary btn-lg blue", :role => "button"  %>
+          </li>
+        </ul>  
+      <% end %>
+    </div>
+  </div>
+</div>
