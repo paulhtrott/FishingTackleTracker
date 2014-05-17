@@ -80,9 +80,10 @@
                   &nbsp;&nbsp;&nbsp;
                   <%= link_to 'Delete', tackle, :class => "btn btn-danger btn-sm", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
                   <br>
-                  <br>
-                  <br>
                   <% count_of_items_in_category -= 1 %>
+          <% if count_of_items_in_category != 0 %>
+            <hr>
+          <% end %>
           <% if count_of_items_in_category == 0 %>
                 </div> 
               </div>
