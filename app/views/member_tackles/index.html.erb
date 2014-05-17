@@ -19,11 +19,11 @@
           <% unless shown_title %>
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordian" href="#<%= category.gsub(/\s+/, "") %>">
+                <a data-toggle="collapse" data-parent="#accordian" href="#<%= category.gsub(/\s+/, "") %>">
+                  <h3 class="panel-title">
                     <%= category %>
-                  </a>
-                </h3>
+                  </h3>
+                </a>
               </div>
               <div id="<%= category.gsub(/\s+/, "") %>" class="panel-collapse collapse">
                 <div class="panel-body">
