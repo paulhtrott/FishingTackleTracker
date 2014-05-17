@@ -14,23 +14,23 @@
       <% shown_title = false %>
       <% tackle_based_on_category = @member_tackles.joins(:tackle_type).where(:tackle_types => {:tackle_category => category }) %>
       <% if !tackle_based_on_category.blank? %>
-      <% count_of_items_in_category = tackle_based_on_category.size %>
-      <% tackle_based_on_category.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase }.each do |tackle| %>
-        <% unless shown_title %>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordian" href="#<%= category.gsub(/\s+/, "") %>">
-                  <%= category %>
-                </a>
-              </h3>
-            </div>
-            <div id="<%= category.gsub(/\s+/, "") %>" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <% shown_title = true %>
-        <% end %> 
-                <ul class="tackle-display">
-                  <% if tackle.tackle_img.exists? %>
+        <% count_of_items_in_category = tackle_based_on_category.size %>
+        <% tackle_based_on_category.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase }.each do |tackle| %>
+          <% unless shown_title %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#<%= category.gsub(/\s+/, "") %>">
+                    <%= category %>
+                  </a>
+                </h3>
+              </div>
+              <div id="<%= category.gsub(/\s+/, "") %>" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <% shown_title = true %>
+          <% end %> 
+                  <ul class="tackle-display">
+                    <% if tackle.tackle_img.exists? %>
                       <li><%= link_to image_tag(tackle.tackle_img.url(:thumb)), tackle %>
                     <% end %>
                     <li><%= tackle.tackle_type.name %></li>
@@ -38,7 +38,7 @@
                       <li><%= tackle.name %></li>
                     <% end %>
                     <% if !tackle.description.blank? %>
-                       <li><h5>Description</h5> <%= tackle.description %></li>
+                      <li><h5>Description</h5> <%= tackle.description %></li>
                     <% end %>
                     <% if !tackle.size.blank? %>
                       <li><h5>Size</h5> <%= tackle.size %></li>
@@ -83,13 +83,13 @@
                   <br>
                   <br>
                   <% count_of_items_in_category -= 1 %>
-                  <% if count_of_items_in_category == 0 %>
-                      </div> 
-                    </div>
-                    </div>
-                  <% end %>
+          <% if count_of_items_in_category == 0 %>
+                </div> 
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
     <% end %>
   </div>
 </div>
