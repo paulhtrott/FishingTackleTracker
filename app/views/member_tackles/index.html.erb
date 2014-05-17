@@ -8,69 +8,88 @@
   <%= link_to 'Add New Tackle', new_member_tackle_path, :class => "btn btn-primary btn-lg blue", :role => "button" %>
   <br>
   <br>
-  <% TackleType.uniq.pluck(:tackle_category).sort.each do |category| %>
-    <% shown_title = false %>
-    <% @member_tackles.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase }.each do |tackle| %>
-      <% if category == tackle.tackle_type.tackle_category %>
+  <% count_of_items_in_category = 0 %>
+  <div class="panel-group" id="accordion">
+    <% TackleType.uniq.pluck(:tackle_category).sort.each do |category| %>
+      <% shown_title = false %>
+      <% tackle_based_on_category = @member_tackles.joins(:tackle_type).where(:tackle_types => {:tackle_category => category }) %>
+      <% if !tackle_based_on_category.blank? %>
+      <% count_of_items_in_category = tackle_based_on_category.size %>
+      <% tackle_based_on_category.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase }.each do |tackle| %>
         <% unless shown_title %>
-          <h3><%= category %></h3>
-          <% shown_title = true %>
-        <% end %>
-        <ul class="tackle-display">
-          <% if tackle.tackle_img.exists? %>
-            <li><%= link_to image_tag(tackle.tackle_img.url(:thumb)), tackle %>
-          <% end %>
-          <li><%= tackle.tackle_type.name %></li>
-          <% if !tackle.name.blank? %>
-            <li><%= tackle.name %></li>
-          <% end %>
-          <% if !tackle.description.blank? %>
-            <li><h5>Description</h5> <%= tackle.description %></li>
-          <% end %>
-          <% if !tackle.size.blank? %>
-            <li><h5>Size</h5> <%= tackle.size %></li>
-          <% end %>
-          <% if !tackle.quantity.blank? && tackle.quantity >  0 %>
-            <li><h5>Qty</h5> <%= tackle.quantity %></li>
-          <% end %>
-          <% if !tackle.needToBuy.blank? && tackle.needToBuy > 0 %>
-            <li><h5>Need To Buy</h5> <%= tackle.needToBuy %> more</li>
-          <% end %>
-          <% if !tackle.color.blank? %>
-            <li><h5>Color</h5> <%= tackle.color %></li>
-          <% end %>
-          <% if !tackle.modelnumber.blank? %>
-            <li><h5>Model</h5> <%= tackle.modelnumber %></li>
-          <% end %>
-          <% if !tackle.shape.blank? %>
-            <li><h5>Shape</h5> <%= tackle.shape %></li>
-          <% end %>
-          <% if !tackle.length.blank? %>
-            <li><h5>Length</h5> <%= tackle.length %></li>
-          <% end %>
-          <% if !tackle.weight.blank? %>
-            <li><h5>Weight</h5> <%= tackle.weight %></li>
-          <% end %>
-          <% if !tackle.brand.blank? %>
-            <li><h5>Brand</h5> <%= tackle.brand %></li>
-          <% end %>
-          <% if !tackle.price.blank? && tackle.price > 0 %>
-            <li><h5>Price Paid (each)</h5> <%= number_to_currency(tackle.price) %></li>
-          <% end %>
-          <% if !tackle.price.blank? && !tackle.quantity.blank? %>
-            <li><h5>Total Paid</h5> <%= number_to_currency(tackle.price * tackle.quantity) %></li>
-          <% end %>
-        </ul>
-        <%= link_to 'Show', tackle, :class => "btn btn-primary btn-lg active  blue", :role => "button" %>
-        &nbsp;&nbsp;&nbsp;
-        <%= link_to 'Edit', edit_member_tackle_path(tackle), :class => "btn btn-default btn-lg", :role => "button" %>
-        &nbsp;&nbsp;&nbsp;
-        <%= link_to 'Delete', tackle, :class => "btn btn-danger btn-sm", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
-        <br>
-        <br>
-        <br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordian" href="#<%= category.gsub(/\s+/, "") %>">
+                  <%= category %>
+                </a>
+              </h3>
+            </div>
+            <div id="<%= category.gsub(/\s+/, "") %>" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <% shown_title = true %>
+        <% end %> 
+                <ul class="tackle-display">
+                  <% if tackle.tackle_img.exists? %>
+                      <li><%= link_to image_tag(tackle.tackle_img.url(:thumb)), tackle %>
+                    <% end %>
+                    <li><%= tackle.tackle_type.name %></li>
+                    <% if !tackle.name.blank? %>
+                      <li><%= tackle.name %></li>
+                    <% end %>
+                    <% if !tackle.description.blank? %>
+                       <li><h5>Description</h5> <%= tackle.description %></li>
+                    <% end %>
+                    <% if !tackle.size.blank? %>
+                      <li><h5>Size</h5> <%= tackle.size %></li>
+                    <% end %>
+                    <% if !tackle.quantity.blank? && tackle.quantity >  0 %>
+                      <li><h5>Qty</h5> <%= tackle.quantity %></li>
+                    <% end %>
+                    <% if !tackle.needToBuy.blank? && tackle.needToBuy > 0 %>
+                      <li><h5>Need To Buy</h5> <%= tackle.needToBuy %> more</li>
+                    <% end %>
+                    <% if !tackle.color.blank? %>
+                      <li><h5>Color</h5> <%= tackle.color %></li>
+                    <% end %>
+                    <% if !tackle.modelnumber.blank? %>
+                      <li><h5>Model</h5> <%= tackle.modelnumber %></li>
+                    <% end %>
+                    <% if !tackle.shape.blank? %>
+                      <li><h5>Shape</h5> <%= tackle.shape %></li>
+                    <% end %>
+                    <% if !tackle.length.blank? %>
+                      <li><h5>Length</h5> <%= tackle.length %></li>
+                    <% end %>
+                    <% if !tackle.weight.blank? %>
+                      <li><h5>Weight</h5> <%= tackle.weight %></li>
+                    <% end %>
+                    <% if !tackle.brand.blank? %>
+                      <li><h5>Brand</h5> <%= tackle.brand %></li>
+                    <% end %>
+                    <% if !tackle.price.blank? && tackle.price > 0 %>
+                      <li><h5>Price Paid (each)</h5> <%= number_to_currency(tackle.price) %></li>
+                    <% end %>
+                    <% if !tackle.price.blank? && !tackle.quantity.blank? %>
+                      <li><h5>Total Paid</h5> <%= number_to_currency(tackle.price * tackle.quantity) %></li>
+                    <% end %>
+                  </ul>
+                  <%= link_to 'Show', tackle, :class => "btn btn-primary btn-lg active  blue", :role => "button" %>
+                  &nbsp;&nbsp;&nbsp;
+                  <%= link_to 'Edit', edit_member_tackle_path(tackle), :class => "btn btn-default btn-lg", :role => "button" %>
+                  &nbsp;&nbsp;&nbsp;
+                  <%= link_to 'Delete', tackle, :class => "btn btn-danger btn-sm", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <br>
+                  <br>
+                  <br>
+                  <% count_of_items_in_category -= 1 %>
+                  <% if count_of_items_in_category == 0 %>
+                      </div> 
+                    </div>
+                    </div>
+                  <% end %>
       <% end %>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-<br>
