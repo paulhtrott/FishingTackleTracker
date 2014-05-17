@@ -17,6 +17,10 @@
   color: #D15633;
 }
 
+#flash_alert {
+  color: red;
+}
+
 .alert-error {
   color: red;
 }
