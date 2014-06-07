@@ -26,7 +26,7 @@ class MemberTacklesController < ApplicationController
     @new_member_tackle = @original_member_tackle.dup # duplicate
     @new_member_tackle.name = @new_member_tackle.name + ' (copy)'
     @new_member_tackle.save # save tackle to db
-    redirect_to member_tackle_path(@new_member_tackle.id), notice: 'Your tackle was successfully copied.'
+    redirect_to edit_member_tackle_path(@new_member_tackle.id), notice: 'Your tackle was successfully copied.'
   end  
 
   # POST /member_tackles
