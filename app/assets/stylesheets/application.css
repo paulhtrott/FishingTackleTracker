@@ -50,13 +50,17 @@ a {
   color: #D15633;
 }
 
-textarea#contact_us_contact_message{
+textarea#contact_us_contact_message {
   width: 80%;
   height: 120px;
 }
 
 .btn {
   margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-footer .btn + .btn {
   margin-bottom: 15px;
 }
 

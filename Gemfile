@@ -12,6 +12,9 @@ ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+# For custom modal to override browser defaults
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
 # Use Devise
 gem 'devise'
 

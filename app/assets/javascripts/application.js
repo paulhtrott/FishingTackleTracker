@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require application
+//= require data-confirm-modal
 //= require_tree .
