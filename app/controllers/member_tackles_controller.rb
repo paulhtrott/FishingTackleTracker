@@ -1,6 +1,6 @@
 class MemberTacklesController < ApplicationController
   before_filter :authenticate_user!  
-  before_action :set_member_tackles, only: [:show, :edit, :update, :destroy]
+  before_action :set_member_tackles, only: [:show, :edit, :update, :destroy, :clone]
 
   # GET /member_tackles  
   def index
@@ -19,7 +19,16 @@ class MemberTacklesController < ApplicationController
   def new
     @member_tackles = MemberTackle.new
   end
-  
+
+  # CLONE a tackle item
+  def clone
+    @original_member_tackle = MemberTackle.find(params[:id]) # find original tackle
+    @new_member_tackle = @original_member_tackle.dup # duplicate
+    @new_member_tackle.name = @new_member_tackle.name + ' (copy)'
+    @new_member_tackle.save # save tackle to db
+    redirect_to member_tackle_path(@new_member_tackle.id), notice: 'Your tackle was successfully copied.'
+  end  
+
   # POST /member_tackles
   def create
     @member_tackles = MemberTackle.new(member_tackles_params)
