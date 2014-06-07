@@ -55,6 +55,11 @@ textarea#contact_us_contact_message{
   height: 120px;
 }
 
+.btn {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
 footer {
   margin: 0px auto;
   text-align: center;
