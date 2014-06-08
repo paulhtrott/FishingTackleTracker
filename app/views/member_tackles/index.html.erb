@@ -33,12 +33,12 @@
                     <% if tackle.tackle_img.exists? %>
                       <li><%= link_to image_tag(tackle.tackle_img.url(:thumb), :class => "tackle_image"), tackle %>
                     <% end %>
-                    <li><%= tackle.tackle_type.name %></li>
+                    <li><h6><%= tackle.tackle_type.name %></h6></li>
                     <% if !tackle.name.blank? %>
                       <li><%= tackle.name %></li>
                     <% end %>
                     <% if !tackle.description.blank? %>
-                      <li><h5>Description</h5> <%= tackle.description %></li>
+                      <li><%= tackle.description %></li>
                     <% end %>
                   </ul>
                   <%= link_to 'Show Details', tackle, :class => "btn btn-primary btn-lg active  blue", :role => "button" %>

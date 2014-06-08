@@ -10,40 +10,40 @@
 	<li><%= image_tag(@member_tackles.tackle_img.url(:medium), :class => "tackle_image") %></li>
     <% end %> 
     <% if !@member_tackles.brand.blank? %>
-      <li><h5>Brand</h5> <%= @member_tackles.brand %></li>
+      <li><h6>Brand</h6> <%= @member_tackles.brand %></li>
     <% end %>
     <% if !@member_tackles.modelnumber.blank? %>
-      <li><h5>Model</h5> <%= @member_tackles.modelnumber %></li>
+      <li><h6>Model</h6> <%= @member_tackles.modelnumber %></li>
     <% end %>
     <% if !@member_tackles.description.blank? %>
-      <li><h5>Description</h5> <%= @member_tackles.description %></li>
+      <li><h6>Description</h6> <%= @member_tackles.description %></li>
     <% end %>
     <% if !@member_tackles.quantity.blank? && @member_tackles.quantity > 0 %>
-      <li><h5>Qty</h5> <%= @member_tackles.quantity %></li>
+      <li><h6>Qty</h6> <%= @member_tackles.quantity %></li>
     <% end %>
     <% if !@member_tackles.needToBuy.blank? && @member_tackles.needToBuy > 0 %>
-      <li><h5>Need To Buy</h5> <%= @member_tackles.needToBuy %> more</li>
+      <li><h6>Need To Buy</h6> <%= @member_tackles.needToBuy %> more</li>
     <% end %>
     <% if !@member_tackles.color.blank? %>
-      <li><h5>Color</h5> <%= @member_tackles.color %></li>
+      <li><h6>Color</h6> <%= @member_tackles.color %></li>
     <% end %> 
     <% if !@member_tackles.shape.blank? %>
-      <li><h5>Shape</h5> <%= @member_tackles.shape %></li>
+      <li><h6>Shape</h6> <%= @member_tackles.shape %></li>
     <% end %>
     <% if !@member_tackles.length.blank? %>
-      <li><h5>Length</h5> <%= @member_tackles.length %></li>
+      <li><h6>Length</h6> <%= @member_tackles.length %></li>
     <% end %>
     <% if !@member_tackles.weight.blank? %>
-      <li><h5>Weight</h5> <%= @member_tackles.weight %></li>
+      <li><h6>Weight</h6> <%= @member_tackles.weight %></li>
     <% end %>
     <% if !@member_tackles.size.blank? %>
-      <li><h5>Size</h5> <%= @member_tackles.size %></li>
+      <li><h6>Size</h6> <%= @member_tackles.size %></li>
     <% end %>
     <% if !@member_tackles.price.blank? && @member_tackles.price > 0 %>
-      <li><h5>Price Paid (each)</h5> <%= number_to_currency(@member_tackles.price) %></li>
+      <li><h6>Price Paid (each)</h6> <%= number_to_currency(@member_tackles.price) %></li>
     <% end %>
     <% if !@member_tackles.price.blank? && !@member_tackles.quantity.blank? %>
-      <li><h5>Total Paid</h5> <%= number_to_currency(@member_tackles.price * @member_tackles.quantity) %></li>
+      <li><h6>Total Paid</h6> <%= number_to_currency(@member_tackles.price * @member_tackles.quantity) %></li>
     <% end %>
 </ul>
 <%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles), :class => "btn btn-primary btn-lg active blue", :role => "button" %>
