@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+textarea#contact_us_contact_message {
+  width: 80%;
+  height: 120px;
+}
 
 .step-info {
   background-color: #F0F5FB;
