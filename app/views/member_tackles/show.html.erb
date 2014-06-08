@@ -7,7 +7,7 @@
 <div class="container">
 <ul class="tackle-display">
     <% if @member_tackles.tackle_img.exists? %>
-	<li><%= image_tag(@member_tackles.tackle_img.url(:medium)) %></li>
+	<li><%= image_tag(@member_tackles.tackle_img.url(:medium), :class => "tackle_image") %></li>
     <% end %> 
     <% if !@member_tackles.description.blank? %>
       <li><h5>Description</h5> <%= @member_tackles.description %></li>

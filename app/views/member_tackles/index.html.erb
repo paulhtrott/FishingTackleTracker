@@ -31,7 +31,7 @@
           <% end %> 
                   <ul class="tackle-display">
                     <% if tackle.tackle_img.exists? %>
-                      <li><%= link_to image_tag(tackle.tackle_img.url(:thumb)), tackle, :class => "tackle_image" %>
+                      <li><%= link_to image_tag(tackle.tackle_img.url(:thumb), :class => "tackle_image"), tackle %>
                     <% end %>
                     <li><%= tackle.tackle_type.name %></li>
                     <% if !tackle.name.blank? %>
