@@ -4,6 +4,7 @@
   <title>FishingTackleTracker</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= favicon_link_tag 'favicon.ico' %>  
   
   <meta name="viewport" content="width=device-width, maximum-scale=1.0">
 
@@ -52,12 +53,6 @@
       <% if user_signed_in? %><p>Hi <span class="orange"><%= current_user.email %></span>! Not you? <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></p><% end %>   
     </div>
   </header>
-
-<div class="container">
-  <% flash.each do |name , msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-</div>
 
 <%= yield %>
 <hr>
