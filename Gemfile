@@ -21,10 +21,10 @@ gem 'devise'
 # Use rmagick, paperclip and aws for images
 gem 'paperclip', '~> 4.1'
 gem 'aws-sdk'
-gem 'rmagick'
+#gem 'rmagick'
 
 # Use Stripe
-gem 'stripe', '~> 1.9'
+#gem 'stripe', '~> 1.9'
 
 # Use CanCan
 #gem 'cancan'
