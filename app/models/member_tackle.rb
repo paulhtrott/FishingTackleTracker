@@ -8,10 +8,6 @@ class MemberTackle < ActiveRecord::Base
   validates_attachment_content_type :tackle_img, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :tackle_img, :in => 0..10.megabytes
   
-#  def self.latest
- #   MemberTackle.order(:name)
- # end
-
   def needToBuy
     if self.quantity_wanted && self.quantity
       qtywanted = self.quantity_wanted - self.quantity
