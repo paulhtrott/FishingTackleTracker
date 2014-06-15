@@ -54,6 +54,12 @@
     </div>
   </header>
 
+<div class="container">
+  <% flash.each do |name , msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+
 <%= yield %>
 <hr>
 <footer>Copyright &copy; 2014 - FishingTackleTracker&trade; All rights reserved.</footer>
