@@ -7,7 +7,7 @@
 <div class="container">
 <ul class="tackle-display">
     <% if @member_tackles.tackle_img.exists? %>
-      <li><%= link_to image_tag(@member_tackles.tackle_img.url(:medium), :class => "tackle_image"), @member_tackles.tackle_img.url(:large) %></li>
+      <li><%= link_to image_tag(@member_tackles.tackle_img.url(:medium), :class => "tackle_image"), @member_tackles.tackle_img.url(:original), :popup=>['original_image', 'width=700'] %></li>
     <% end %> 
     <% if !@member_tackles.brand.blank? %>
       <li><h6>Brand</h6> <%= @member_tackles.brand %></li>
