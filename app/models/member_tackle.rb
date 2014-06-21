@@ -4,7 +4,7 @@ class MemberTackle < ActiveRecord::Base
 
   attr_accessor :custom_field
   
-  has_attached_file :tackle_img, styles: { thumb: '100x100>', medium: '300x300>' }
+  has_attached_file :tackle_img, styles: { thumb: '100x100>', medium: '300x300>', large: '700x700>' }
   validates_attachment_content_type :tackle_img, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :tackle_img, :in => 0..10.megabytes
   
