@@ -23,11 +23,11 @@
   <%= f.input :name, placeholder: 'Husky Jerk 08'  %>
   <%= f.input :description, as: :text, placeholder: 'Perfectly balanced, the Husky Jerk can be cast or trolled at any speed and still run true.' %>
   <% if (params[:action] != "edit") %>
-    <%= f.input :quantity, collection: 1..100, selected: 1  %>
-    <%= f.input :quantity_wanted, label: 'Quantity Wanted',  collection: 1..100, selected: 1 %>
+    <%= f.input :quantity, label: 'I Have', collection: 1..100, selected: 1  %>
+    <%= f.input :quantity_wanted, label: 'I Want',  collection: 1..100, selected: 1 %>
   <% else %>
-    <%= f.input :quantity, collection: 1..100, selected: MemberTackle.find(params[:id]).quantity %>
-    <%= f.input :quantity_wanted, label: 'Quantity Wanted', collection: 1..100, selected: MemberTackle.find(params[:id]).quantity_wanted %>
+    <%= f.input :quantity, label: 'I Have', collection: 1..100, selected: MemberTackle.find(params[:id]).quantity %>
+    <%= f.input :quantity_wanted, label: 'I Want', collection: 1..100, selected: MemberTackle.find(params[:id]).quantity_wanted %>
   <% end %>
   <%= f.input :price, label: 'Price Paid (ea)', placeholder: '5.90' %>
   <%= f.input :color, placeholder: 'Red/Blue' %>
