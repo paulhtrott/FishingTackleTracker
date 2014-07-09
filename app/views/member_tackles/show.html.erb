@@ -49,7 +49,9 @@
     <% end %>
 </ul>
 <%= link_to 'Edit Tackle', edit_member_tackle_path(@member_tackles), :class => "btn btn-primary btn-lg active blue", :role => "button" %>
-<br>
+&nbsp;&nbsp;&nbsp;
+<%= link_to 'Copy', clone_member_tackle_path(@member_tackles.id), :class => "btn btn-info btn-sm", :role => "button" %>
+<%= link_to 'Delete', @member_tackles, :title => 'Confirm Deletion', :class => "btn btn-danger btn-sm", :role => "button", method: :delete, data: { confirm: 'Are you sure you want to delete this item? WARNING: This action can not be undone.' } %>
 <br>
 <br>
 <%= link_to 'Return to Tackle Dashboard', member_tackles_path, :class => "btn btn-default btn-lg", :role => "button" %>
