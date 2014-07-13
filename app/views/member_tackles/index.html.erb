@@ -30,7 +30,7 @@
       </div>
       <div id="<%= category.gsub(/\s+/, "") %>" class="panel-collapse collapse">
         <div class="panel-body">
-          <div class="panel-group" id="accordion_two">
+          <div class="panel-group" id="accordion_<%= category.gsub(/\s+/, "") %>">
             <%# FOR EACH USER TACKLE ITEM WITH CATEGORY SORTED %>
             <%# FOR EACH TACKLE ITEM WITH THE SAME TYPE NAME SORTED %>
             <% @member_tackles.joins(:tackle_type).where(:tackle_types => {:tackle_category => category }).each do |item| %>
@@ -40,7 +40,7 @@
             <% array_of_tackle.each do |type_of_tackle| %>
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <a data-toggle="collapse" data-parent="#accordion_two" href="#<%= type_of_tackle.gsub(/\s+/, "") %>">
+                  <a data-toggle="collapse" data-parent="#accordion_<%= category.gsub(/\s+/, "") %>" href="#<%= type_of_tackle.gsub(/\s+/, "") %>">
                     <h3 class="panel-title">
                       <%= type_of_tackle %>
                     </h3>
