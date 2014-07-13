@@ -10,48 +10,76 @@
   <br>
   <% count_of_items_in_category = 0 %>
   <% array_of_categories = [] %>
+  <% array_of_tackle_types = [] %>
   <!--GET THE USERS ENTERED TACKLE, SORTED BY TACKLE TYPE NAME-->
   <% users_tackle = @member_tackles.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase } %>
   <!--GET ALL TACKLE CATEGORIES -->
-  <% users_tackle.each do |tackle_item| %>
-    <% array_of_categories.push(tackle_item.tackle_type.tackle_category) %></p>
+  <% users_tackle.each do |tackle| %>
+    <% array_of_categories.push(tackle.tackle_type.tackle_category) %>
   <% end %>
   <% tackle_categories = array_of_categories.uniq.sort %>
   <div class="panel-group" id="accordion_main">
   <!--FOR EACH UNIQUE CATEGORY IN THE COLLECTION SORTED-->
-  <% tackle_categories.each do |category| %>  
+  <% tackle_categories.each do |category| %>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a data-toggle="collapse" data-parent="#accordion_main" href="#<%= category %>">
+        <a data-toggle="collapse" data-parent="#accordion_main" href="#<%= category.gsub(/\s+/, "") %>">
           <h3 class="panel-title">
-            <%= category %>
+            <%= category.gsub(/\s+/, "") %>
           </h3>
         </a>
       </div>
-      <div id="<%= category %>" class="panel-collapse collapse">
-        <!--FOR EACH TACKLE ITEM SORTED-->
+      <div id="<%= category.gsub(/\s+/, "") %>" class="panel-collapse collapse">
         <div class="panel-body">
-          <!--FOR EACH TACKLE ITEM WITH THE SAME TYPE NAME SORTED-->
             <div class="panel-group" id="accordion_two">
+        <!--FOR EACH USER TACKLE ITEM WITH CATEGORY SORTED-->
+          <!--FOR EACH TACKLE ITEM WITH THE SAME TYPE NAME SORTED-->
+          <% @member_tackles.joins(:tackle_type).where(:tackle_types => {:tackle_category => category }).each do |item| %>
+            <% array_of_tackle_types.push(item.tackle_type.name) %>
+          <% end %>
+          <% array_of_tackle = array_of_tackle_types.uniq.sort %>
+          <% array_of_tackle.each do |type_of_tackle| %>
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <a data-toggle="collapse" data-parent="#accordion_two" href="#TITLE-NAME">
+                  <a data-toggle="collapse" data-parent="#accordion_two" href="#<%= type_of_tackle.gsub(/\s+/, "") %>">
                     <h3 class="panel-title">
-                      TACKLE TITLE NAME
+                      <%= type_of_tackle %>
                     </h3>
                   </a>
                 </div>
-                <div id="TITLE-NAME" class="panel-collapse collapse">
+                <div id="<%= type_of_tackle.gsub(/\s+/, "") %>" class="panel-collapse collapse">
                   <div class="panel-body">
-                    <p>EACH TACKLE WITH THE SAME TACKLE TITLE NAME</p>
+            <% @member_tackles.joins(:tackle_type).where(:tackle_types => {:name => type_of_tackle, :tackle_category => category}).each do |tackle| %> 
+                  <ul class="tackle-display">
+                    <% if tackle.tackle_img.exists? %>
+                      <li><%= link_to image_tag(tackle.tackle_img.url(:thumb), :class => "tackle_image"), tackle %>
+                    <% end %>
+                    <li><h6><%= tackle.tackle_type.name %></h6></li>
+                    <% if !tackle.name.blank? %>
+                      <li><%= tackle.name %></li>
+                    <% end %>
+                    <% if !tackle.description.blank? %>
+                      <li><%= tackle.description %></li>
+                    <% end %>
+                  </ul>
+                  <%= link_to 'Show Details', tackle, :class => "btn btn-primary btn-lg active  blue", :role => "button" %>
+                  &nbsp;&nbsp;&nbsp;
+                  <%= link_to 'Edit', edit_member_tackle_path(tackle), :class => "btn btn-default btn-lg", :role => "button" %>
+                  &nbsp;&nbsp;&nbsp;
+                  <%= link_to 'Copy', clone_member_tackle_path(tackle.id), :class => "btn btn-info btn-sm", :role => "button" %>
+                  <%= link_to 'Delete', tackle, :title => 'Confirm Deletion', :class => "btn btn-danger btn-sm", :role => "button", method: :delete, data: { confirm: 'Are you sure you want to delete this item? WARNING: This action can not be undone.' } %>
+                  <br>
                     <hr>
+            <% end %>
                   </div>
                 </div>
               </div>
-            </div>
+          <% end %>
+          <% array_of_tackle_types.clear %>
           <!--END FOR EACH TACKLE ITEM WITH THE SAME TYPE NAME -->
-        </div>
         <!--END FOR EACH TACKLE ITEM -->
+            </div>
+        </div>
       </div>
     </div>
   <% end %>
