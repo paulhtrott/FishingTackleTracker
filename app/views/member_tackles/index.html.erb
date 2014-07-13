@@ -9,6 +9,55 @@
   <br>
   <br>
   <% count_of_items_in_category = 0 %>
+  <% array_of_categories = [] %>
+  <!--GET THE USERS ENTERED TACKLE, SORTED BY TACKLE TYPE NAME-->
+  <% users_tackle = @member_tackles.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase } %>
+  <!--GET ALL TACKLE CATEGORIES -->
+  <% users_tackle.each do |tackle_item| %>
+    <% array_of_categories.push(tackle_item.tackle_type.tackle_category) %></p>
+  <% end %>
+  <% tackle_categories = array_of_categories.uniq.sort %>
+  <div class="panel-group" id="accordion_main">
+  <!--FOR EACH UNIQUE CATEGORY IN THE COLLECTION SORTED-->
+  <% tackle_categories.each do |category| %>  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion_main" href="#<%= category %>">
+          <h3 class="panel-title">
+            <%= category %>
+          </h3>
+        </a>
+      </div>
+      <div id="<%= category %>" class="panel-collapse collapse">
+        <!--FOR EACH TACKLE ITEM SORTED-->
+        <div class="panel-body">
+          <!--FOR EACH TACKLE ITEM WITH THE SAME TYPE NAME SORTED-->
+            <div class="panel-group" id="accordion_two">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a data-toggle="collapse" data-parent="#accordion_two" href="#TITLE-NAME">
+                    <h3 class="panel-title">
+                      TACKLE TITLE NAME
+                    </h3>
+                  </a>
+                </div>
+                <div id="TITLE-NAME" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>EACH TACKLE WITH THE SAME TACKLE TITLE NAME</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--END FOR EACH TACKLE ITEM WITH THE SAME TYPE NAME -->
+        </div>
+        <!--END FOR EACH TACKLE ITEM -->
+      </div>
+    </div>
+  <% end %>
+  <!-- END FOR EACH UNIQUE CATEGORY IN THE COLLECTION -->
+  </div>
+
   <div class="panel-group" id="accordion">
     <% TackleType.uniq.pluck(:tackle_category).sort.each do |category| %>
       <% shown_title = false %>
