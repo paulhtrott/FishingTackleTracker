@@ -59,6 +59,10 @@ a {
   margin-bottom: 15px;
 }
 
+.radio, .checkbox {
+  margin-left: 20px;
+}
+
 footer {
   margin: 0px auto;
   text-align: center;
