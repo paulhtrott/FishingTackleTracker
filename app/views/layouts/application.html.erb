@@ -53,7 +53,14 @@
           </ul>
         <% end %>
       </nav> 
-      <% if user_signed_in? %><p>Hi <span class="orange"><%= current_user.email %></span>! Not you? <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></p><% end %>   
+      <% if user_signed_in? %>
+        <p>Hi <span class="orange">
+        <% if !current_user.first_name.blank? %>
+          <%= current_user.first_name %>
+        <% else %>
+          <%= current_user.email %>
+        <% end %></span>...Not you? <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></p>
+      <% end %>   
     </div>
   </header>
 
