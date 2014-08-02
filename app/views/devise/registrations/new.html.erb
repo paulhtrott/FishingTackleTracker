@@ -5,6 +5,7 @@
   </div>
 </div>
 <div class="container">
+  <p class="orange">Thank you for signing up.<br>Fields marked with * are required.</p>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
@@ -12,6 +13,14 @@
       <%= f.input :email, required: true, autofocus: true %><br>
       <%= f.input :password, required: true %><br>
       <%= f.input :password_confirmation, required: true %>
+      <%= f.input :first_name, required: true %>
+      <%= f.input :last_name, required: true %>
+      <%= f.input :address_one, label: 'Address', required: true %>
+      <%= f.input :address_two, label: 'Address 2' %>
+      <%= f.input :city, required: true %>
+      <%= f.input :state %>
+      <%= f.input :zip_code, required: true %>
+      <%= f.input :country, required: true %>
     </div>
     <br>
     <div class="form-actions">

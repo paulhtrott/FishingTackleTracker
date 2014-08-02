@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426184657) do
+ActiveRecord::Schema.define(version: 20140724165237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,9 +63,25 @@ ActiveRecord::Schema.define(version: 20140426184657) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address_one"
+    t.string   "address_two"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip_code"
   end
 
+  add_index "users", ["address_one"], name: "index_users_on_address_one", using: :btree
+  add_index "users", ["address_two"], name: "index_users_on_address_two", using: :btree
+  add_index "users", ["city"], name: "index_users_on_city", using: :btree
+  add_index "users", ["country"], name: "index_users_on_country", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["first_name"], name: "index_users_on_first_name", using: :btree
+  add_index "users", ["last_name"], name: "index_users_on_last_name", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["state"], name: "index_users_on_state", using: :btree
+  add_index "users", ["zip_code"], name: "index_users_on_zip_code", using: :btree
 
 end

@@ -19,9 +19,7 @@ Tackletracker::Application.routes.draw do
     :only       => [:new, :create]
   get 'contact-us' => 'contact_us/contacts#new', :as => :contact_us
   
-  #resources :member_tackles
-
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   
   # javascript for dynamic tackle selection
   get "javascripts/dynamic_tackle_type"
