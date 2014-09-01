@@ -7,4 +7,3 @@ $ ->
     $("#show-loading-btn").attr("value", "Adding Tackle...").addClass "disabled"
     return
   return
-return
