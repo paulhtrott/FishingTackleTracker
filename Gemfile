@@ -18,6 +18,9 @@ gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 # Use Devise
 gem 'devise'
 
+# Use newrelic for stats
+gem 'newrelic_rpm'
+
 # Use rmagick, paperclip and aws for images
 gem 'paperclip', '~> 4.1'
 gem 'aws-sdk'
