@@ -11,7 +11,7 @@
   <% array_of_categories = [] %>
   <% array_of_tackle_types = [] %>
   <%# GET THE USERS ENTERED TACKLE, SORTED BY TACKLE TYPE NAME %>
-  <% users_tackle = @member_tackles.sort! { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase } %>
+  <% users_tackle = @member_tackles.sort { |a,b| a.tackle_type.name.downcase <=> b.tackle_type.name.downcase } %>
   <%# GET ALL TACKLE CATEGORIES %>
   <% users_tackle.each do |tackle| %>
     <% array_of_categories.push(tackle.tackle_type.tackle_category) %>
