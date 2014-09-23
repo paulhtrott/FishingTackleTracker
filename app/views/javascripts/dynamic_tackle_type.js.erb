@@ -1,6 +1,6 @@
 var tackle = new Array();
-<% for tackle in @tackle -%>
-  tackle.push(new Array('<%=h tackle.tackle_category %>', '<%=h tackle.name %>', '<%=h tackle.name %>', '<%=h tackle.id %>'));
+<% for tackle_in_box in @tackle -%>
+  tackle.push(new Array('<%=h tackle_in_box.tackle_category %>', '<%=h tackle_in_box.name %>', '<%=h tackle_in_box.name %>', '<%=h tackle_in_box.id %>'));
 <% end -%>
 
 function tackleCategorySelected() {

@@ -176,7 +176,7 @@ DEPENDENCIES
   newrelic_rpm
   paperclip (~> 4.1)
   pg
-  rails (~> 4.0)
+  rails (~> 4.1.0)
   rails_12factor
   sass-rails (~> 4.0)
   sdoc

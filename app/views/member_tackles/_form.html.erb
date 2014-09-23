@@ -44,3 +44,10 @@
   <br>
   <%= f.button :submit, 'Submit Tackle', :id => "show-loading-btn" , :class => "btn btn-primary btn-lg blue", :role => "button" %>
 <% end %>
+<script>
+$(function() {
+  $("#show-loading-btn").click(function() {
+    $("#show-loading-btn").attr("value", "Adding Tackle...").addClass("disab    led");
+  });
+});
+</script>
