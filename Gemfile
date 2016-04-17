@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # ruby version
-ruby "2.0.0"
+ruby '~> 2.2.0'
 
 #sendgrid for message sending, contact us
 #gem 'sendgrid'
