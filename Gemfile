@@ -23,7 +23,7 @@ gem 'newrelic_rpm', group: :production
 
 # Use rmagick, paperclip and aws for images
 gem 'paperclip', '~> 4.1'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 #gem 'rmagick'
 
 # Use Stripe
