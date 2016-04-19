@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # ruby version
-ruby '~> 2.2.0'
+ruby "2.2.4"
 
 #sendgrid for message sending, contact us
 #gem 'sendgrid'
@@ -86,4 +86,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
