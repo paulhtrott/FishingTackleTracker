@@ -1,3 +1,9 @@
 # Fishing Tackle Tracker #
 
 Fishing tackle tracking app that allows users to keep track of their fishing and boating supplies.
+
+# About Project #
+This is my first attempt at using and understanding Rails, Ruby and MVC. With Rails being my first web framework.
+
+# The Bad #
+I did not do much for testing, I had a hard enough time trying to learn Rails, Ruby and Web development at the same time. I do enjoy unit testing! My co-workers can attest to this. Please don't judge me by my personal projects :)
