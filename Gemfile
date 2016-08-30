@@ -10,8 +10,8 @@ gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'devise'
 
 # Use paperclip and aws for images
-gem 'paperclip', '~> 4.1'
-gem 'aws-sdk', '< 2.0'
+gem 'paperclip', '~> 5.1'
+gem 'aws-sdk', '~> 2.0'
 
 # Use Bootstrap 3
 gem 'bootstrap3-rails', '~> 3.1'
