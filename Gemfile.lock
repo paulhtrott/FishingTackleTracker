@@ -205,7 +205,6 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.1)
   pg
-  rails (~> 5.0)
   rails_12factor
   sass-rails (~> 5.0)
   sdoc
