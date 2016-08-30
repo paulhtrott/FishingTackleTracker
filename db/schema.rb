@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140724165237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "member_tackles", force: true do |t|
+  create_table "member_tackles", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "size"
@@ -37,22 +36,21 @@ ActiveRecord::Schema.define(version: 20140724165237) do
     t.string   "tackle_img_content_type"
     t.integer  "tackle_img_file_size"
     t.datetime "tackle_img_updated_at"
+    t.index ["name"], name: "index_member_tackles_on_name", using: :btree
+    t.index ["tackle_type_id"], name: "index_member_tackles_on_tackle_type_id", using: :btree
+    t.index ["user_id"], name: "index_member_tackles_on_user_id", using: :btree
   end
 
-  add_index "member_tackles", ["tackle_type_id"], name: "index_member_tackles_on_tackle_type_id", using: :btree
-  add_index "member_tackles", ["user_id"], name: "index_member_tackles_on_user_id", using: :btree
-
-  create_table "tackle_types", force: true do |t|
+  create_table "tackle_types", force: :cascade do |t|
     t.string   "name"
     t.string   "tackle_category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_tackle_types_on_name", unique: true, using: :btree
+    t.index ["tackle_category"], name: "index_tackle_types_on_tackle_category", using: :btree
   end
 
-  add_index "tackle_types", ["name"], name: "index_tackle_types_on_name", unique: true, using: :btree
-  add_index "tackle_types", ["tackle_category"], name: "index_tackle_types_on_tackle_category", using: :btree
-
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -71,17 +69,16 @@ ActiveRecord::Schema.define(version: 20140724165237) do
     t.string   "state"
     t.string   "country"
     t.string   "zip_code"
+    t.index ["address_one"], name: "index_users_on_address_one", using: :btree
+    t.index ["address_two"], name: "index_users_on_address_two", using: :btree
+    t.index ["city"], name: "index_users_on_city", using: :btree
+    t.index ["country"], name: "index_users_on_country", using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["first_name"], name: "index_users_on_first_name", using: :btree
+    t.index ["last_name"], name: "index_users_on_last_name", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["state"], name: "index_users_on_state", using: :btree
+    t.index ["zip_code"], name: "index_users_on_zip_code", using: :btree
   end
-
-  add_index "users", ["address_one"], name: "index_users_on_address_one", using: :btree
-  add_index "users", ["address_two"], name: "index_users_on_address_two", using: :btree
-  add_index "users", ["city"], name: "index_users_on_city", using: :btree
-  add_index "users", ["country"], name: "index_users_on_country", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["first_name"], name: "index_users_on_first_name", using: :btree
-  add_index "users", ["last_name"], name: "index_users_on_last_name", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["state"], name: "index_users_on_state", using: :btree
-  add_index "users", ["zip_code"], name: "index_users_on_zip_code", using: :btree
 
 end

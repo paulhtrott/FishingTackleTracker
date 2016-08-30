@@ -1,11 +1,22 @@
 # Fishing Tackle Tracker #
 
-Fishing tackle tracking app that allows users to keep track of their fishing and boating supplies.
+Fishing tackle tracking web app that allows users to keep track of their fishing and boating supplies.
 
-# About Project #
+# URL #
 
-This is my first attempt at using and understanding Rails, Ruby and MVC. With Rails being my first web framework. I did not do much for testing, I had a hard enough time trying to teach myself MVC, Rails, Ruby, Web development, Bitbucket, Heroku, and Git at the same time. I think the code is somewhat ugly. But I created this app for my brother and myself and we have not run into any issues when using the app for our personal fishing tackle.
+http://www.fishingtackletracker.com
 
-# The Future #
+# Web Server #
+Heroku - Free Tier
 
-Eventually I want to rewrite this app for iOS, but that's for the future, when I have time to teach myself Swift and iOS....will the future ever happen...who knows.
+# About #
+We created this site for the same reason we use it. We got tired of not remembering what we already owned. We would get to a fishing supply or boating supply store and totally forget what we already owned when looking at the glorious selection of store inventory.
+
+So to be able to keep our selection of tackle fresh, we needed a way to allow us to remember what we already had so we could spend our fishing and boating budget in a more responsible way.
+
+So, fisherman and boaters, we suggest you use our site, not only to save money but to save your brain power for fishing and boating rather than having to remember what you own.
+
+Can we really have too much boating and fishing supplies?
+
+No. BUT, now we can atleast know which colors of the rainbow we already have so we can get that full lure color collection we have ALWAYS wanted.
+
