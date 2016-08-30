@@ -8,6 +8,9 @@ ruby "2.3.1"
 * System dependencies
 rails "~> 5.0"
 
+* Application(s) needed
+ImageMagick - $ brew install imagemagick
+
 * First step
 bundle install
 
@@ -17,5 +20,5 @@ bundle install
 3) Migrate local db - rake db:migrate
 4) Seed db - rake db:seed
 
-* Deployment instructions
-Heroku Cli
+* Build Server
+Travis CI
