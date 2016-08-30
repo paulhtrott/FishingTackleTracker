@@ -11,7 +11,7 @@ gem 'devise'
 
 # Use paperclip and aws for images
 gem 'paperclip', '~> 4.1'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '~> 2.0'
 
 # Use Bootstrap 3
 gem 'bootstrap3-rails', '~> 3.1'
