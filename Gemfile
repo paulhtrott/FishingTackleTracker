@@ -32,7 +32,7 @@ gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 1.3'
+gem 'uglifier', '~> 2.7'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.2'
