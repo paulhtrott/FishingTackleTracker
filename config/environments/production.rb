@@ -84,6 +84,7 @@ Tackletracker::Application.configure do
   # Paperclip and S3 configuration (for image uploads)
   config.paperclip_defaults = {
     :storage => :s3,
+    :s3_region => 'us-west-2',
     :s3_host_name => 's3-us-west-2.amazonaws.com',
     :s3_credentials => {
       :bucket => ENV['S3_BUCKET_NAME'],
