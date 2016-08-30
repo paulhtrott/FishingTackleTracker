@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/paulhtrott/FishingTackleTracker.svg?branch=master)](https://travis-ci.org/paulhtrott/FishingTackleTracker)
+
 # Fishing Tackle Tracker #
 
 Fishing tackle tracking web app that allows users to keep track of their fishing and boating supplies.
