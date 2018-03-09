@@ -1,4 +1,4 @@
-class CreateMemberTackles < ActiveRecord::Migration
+class CreateMemberTackles < ActiveRecord::Migration[5.1]
   def change
     create_table :member_tackles do |t|
       t.string :name, index: true

@@ -25,8 +25,14 @@ gem 'simple_form', '~> 3.3'
 # Use postgres database
 gem 'pg'
 
+#Puma
+gem 'puma', '~> 3.7'
+
 #Include 'rails_12factor' gem to enable all platform features
 gem 'rails_12factor', group: :production
+
+# Rails
+gem 'rails', '~> 5.1.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

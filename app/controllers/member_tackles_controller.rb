@@ -1,8 +1,8 @@
 class MemberTacklesController < ApplicationController
-  before_filter :authenticate_user!  
+  before_action :authenticate_user!
   before_action :set_member_tackles, only: [:show, :edit, :update, :destroy, :clone]
 
-  # GET /member_tackles  
+  # GET /member_tackles
   def index
     @member_tackles = MemberTackle.where(:member_tackles => { :user_id => current_user.id }).order(:name)
   end
@@ -27,7 +27,7 @@ class MemberTacklesController < ApplicationController
     @new_member_tackle.name = @new_member_tackle.name + ' (copy)'
     @new_member_tackle.save # save tackle to db
     redirect_to edit_member_tackle_path(@new_member_tackle.id), notice: 'Your tackle was successfully copied.'
-  end  
+  end
 
   # POST /member_tackles
   def create
@@ -41,7 +41,7 @@ class MemberTacklesController < ApplicationController
       end
     end
   end
-  
+
   # PATCH/PUT /member_tackles/1
   def update
     respond_to do |format|
@@ -59,8 +59,8 @@ class MemberTacklesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to member_tackles_url }
     end
-  end 
-  
+  end
+
   private
     # Use callbacks to share a common setup or contraints between action.
     def set_member_tackles

@@ -1,4 +1,4 @@
-class AddFirstNameToUsers < ActiveRecord::Migration
+class AddFirstNameToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :first_name, :string
     add_column :users, :last_name, :string
@@ -8,7 +8,7 @@ class AddFirstNameToUsers < ActiveRecord::Migration
     add_column :users, :state, :string
     add_column :users, :country, :string
     add_column :users, :zip_code, :string
- 
+
     add_index :users, :first_name
     add_index :users, :last_name
     add_index :users, :address_one
