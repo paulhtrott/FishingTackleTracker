@@ -40,7 +40,7 @@ Tackletracker::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -80,7 +80,7 @@ Tackletracker::Application.configure do
 
   # Send Grid for devise
   config.action_mailer.default_url_options = { :host => 'gentle-savannah-9208.herokuapp.com' }
-  
+
   # Paperclip and S3 configuration (for image uploads)
   config.paperclip_defaults = {
     :storage => :s3,
