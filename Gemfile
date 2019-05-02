@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # ruby version
-ruby "2.3.1"
+ruby "2.5.5"
 
 # For custom modal to override browser defaults
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
