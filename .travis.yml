@@ -5,9 +5,9 @@ services:
 
 
 rvm:
-  - 2.3.1
+  - 2.6.3
 
-bundler_args: --without test 
+bundler_args: --without test
 
 cache:
   bundler: true
