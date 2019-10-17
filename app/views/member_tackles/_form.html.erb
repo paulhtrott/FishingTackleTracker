@@ -16,7 +16,7 @@
     <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category (required)', collection: TackleType.pluck(:tackle_category).uniq.sort %>
     <%= f.input :tackle_type_id, required: true, input_html: {id: 'tackle_type'}, label: 'Select Type (required)', collection: TackleType.all.map{ |t| [t.name, t.id] }.sort %>
   <% else %>
-    <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category (required)', collection: TackleType.uniq.pluck(:tackle_category).sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).tackle_category %>
+    <%= f.input :custom_field, required: true, input_html: {id: 'tackle_category'}, label: 'Select Category (required)', collection: TackleType.pluck(:tackle_category).uniq.sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).tackle_category %>
     <%= f.input :tackle_type_id, required: true, input_html: {id: 'tackle_type'}, label: 'Select Type (required)', collection: TackleType.all.map{ |t| [t.name, t.id] }.sort, selected: TackleType.find(MemberTackle.find(params[:id]).tackle_type_id).id %>
   <% end %>
 
