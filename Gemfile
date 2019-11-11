@@ -20,7 +20,7 @@ gem 'bootstrap3-rails', '~> 3.1'
 gem 'country_select', '~> 1.3'
 
 # Use Simple Form for Forms
-gem 'simple_form', '~> 3.3'
+gem 'simple_form', '~> 5.0'
 
 # Use postgres database
 gem 'pg'
