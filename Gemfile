@@ -26,7 +26,7 @@ gem 'simple_form', '~> 5.0'
 gem 'pg'
 
 #Puma
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 5.5'
 
 #Include 'rails_12factor' gem to enable all platform features
 gem 'rails_12factor', group: :production
