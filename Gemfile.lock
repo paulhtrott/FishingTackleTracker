@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/ifad/data-confirm-modal.git
-  revision: 52b12473bb110e2437b06e262b0435741ceac75c
+  remote: https://github.com/ifad/data-confirm-modal.git
+  revision: 404119ad5bf7754c31af41e35935e365c69dcd92
   specs:
-    data-confirm-modal (1.6.2)
+    data-confirm-modal (1.6.3)
       railties (>= 3.0)
 
 GEM
@@ -106,13 +106,16 @@ GEM
     mime-types (3.3)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
-    mimemagic (0.3.3)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     minitest (5.13.0)
     nio4r (2.5.2)
-    nokogiri (1.10.5)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     paperclip (5.3.0)
       activemodel (>= 4.2.0)
@@ -122,6 +125,7 @@ GEM
       terrapin (~> 0.6.0)
     pg (1.1.4)
     puma (3.12.1)
+    racc (1.6.0)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
